@@ -5,6 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/*
+ * References: http://www.lynda.com/Java-tutorials/Reading-writing-byte-streams/107061/113502-4.html
+ * */
 public class ReadingAndWritingByteStreams {
 	public static void main(String[] args) {
 		try {

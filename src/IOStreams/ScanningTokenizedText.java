@@ -6,6 +6,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
+/*
+ * References: http://www.lynda.com/Java-tutorials/Reading-writing-byte-streams/107061/113502-4.html
+ * */
 public class ScanningTokenizedText {
 	public static void main(String[] args) {
 		try {
