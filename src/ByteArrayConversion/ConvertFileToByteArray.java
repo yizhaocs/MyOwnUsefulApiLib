@@ -1,10 +1,11 @@
+package ByteArrayConversion;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.apache.commons.io.IOUtils;
 
-public class ConvertToByteArrayOrBinaryData {
+public class ConvertFileToByteArray {
 	public static byte[] stringToByteArray(String s) {
 		return s.getBytes();
 	}
@@ -13,12 +14,9 @@ public class ConvertToByteArrayOrBinaryData {
 	public static byte[] imageToByteArray() throws IOException {
 		byte[] res = null;
 		FileInputStream in = null;
-
 		try {
 			in = new FileInputStream("image.png");
-
 			res = IOUtils.toByteArray(in);
-
 		} catch (FileNotFoundException e) {
 			System.out.println("Caught FileNotFoundException: " + e.getMessage());
 		} catch (IOException e) {
