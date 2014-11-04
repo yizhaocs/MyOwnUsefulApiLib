@@ -1,9 +1,9 @@
 import java.io.IOException;
 import java.util.Arrays;
 
-import ByteArrayConversion.ConvertByteArrayToFile;
-import ByteArrayConversion.ConvertByteArrayToString;
-import ByteArrayConversion.ConvertFileToByteArray;
+import ConversionOfByteArray.ConvertByteArrayToFile;
+import ConversionOfByteArray.ConvertByteArrayToString;
+import ConversionOfByteArray.ConvertFileToByteArray;
 
 public class Main {
 	public static void main(String[] args) throws IOException {

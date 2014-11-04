@@ -1,4 +1,4 @@
-package ByteArrayConversion;
+package ConversionOfByteArray;
 
 import java.io.ByteArrayInputStream;
 
