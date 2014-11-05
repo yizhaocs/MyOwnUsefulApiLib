@@ -22,10 +22,10 @@ public class ReadingAndWritingCharacterStreams {
 		FileReader in = null;
 		FileWriter out = null;
 		try {
-			in = new FileReader("C:\\Users\\Yi\\Desktop\\inputSource.txt");
+			in = new FileReader("text.txt");
 			// When you're working with FileWriter you don't have to create the file first,
 			// you can simply start writing to it.
-			out = new FileWriter("C:\\Users\\Yi\\Desktop\\outputSource.txt");
+			out = new FileWriter("/Users/yizhao/Desktop/output.txt");
 			int i;
 			while ((i = in.read()) != -1) {
 				out.write(i);

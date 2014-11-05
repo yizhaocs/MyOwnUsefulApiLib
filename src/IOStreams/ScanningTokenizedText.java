@@ -29,7 +29,7 @@ public class ScanningTokenizedText {
 		FileReader in = null;
 		BufferedReader br = null;
 		try {
-			in = new FileReader("C:\\Users\\Yi\\Desktop\\inputSourceSpace.txt");
+			in = new FileReader("text.txt");
 			br = new BufferedReader(in);
 			s = new Scanner(br);
 			s.useDelimiter(" "); // scan The Character Separated By space
@@ -56,7 +56,7 @@ public class ScanningTokenizedText {
 		FileReader in = null;
 		BufferedReader br = null;
 		try {
-			in = new FileReader("C:\\Users\\Yi\\Desktop\\inputSourceComma.txt");
+			in = new FileReader("text.txt");
 			br = new BufferedReader(in);
 			s = new Scanner(br);
 			s.useDelimiter(","); // scan The Character Separated By Comma

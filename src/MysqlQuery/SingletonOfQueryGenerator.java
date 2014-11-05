@@ -1,6 +1,7 @@
 package MysqlQuery;
 
 
+
 public class SingletonOfQueryGenerator {
 	private static SingletonOfQueryGenerator instance = null;
 
@@ -15,7 +16,7 @@ public class SingletonOfQueryGenerator {
 		return instance;
 	}
 
-	public String insert(String table, String columns, String values) {
+	protected String insert(String table, String columns, String values) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("INSERT INTO ");
 		sb.append(table);
@@ -30,7 +31,7 @@ public class SingletonOfQueryGenerator {
 		return sb.toString();
 	}
 
-	public String upsert(String table, String[] insertColumns, String[] values, String[] updateColumns) {
+	protected String upsert(String table, String[] insertColumns, String[] values, String[] updateColumns) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("INSERT INTO ");
 		sb.append(table);
@@ -65,7 +66,7 @@ public class SingletonOfQueryGenerator {
 		return sb.toString();
 	}
 
-	public String select(String a1, String table, String[] whereClauseCoulmns, String[] whereClauseValues) {
+	protected String select(String a1, String table, String[] whereClauseCoulmns, String[] whereClauseValues) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("SELECT ");
 		sb.append(a1);
@@ -77,7 +78,7 @@ public class SingletonOfQueryGenerator {
 		return sb.toString();
 	}
 
-	public String update(String table, String[] updateCoulmns, String[] updateValues, String[] whereClauseCoulmns, String[] whereClauseValues) {
+	protected String update(String table, String[] updateCoulmns, String[] updateValues, String[] whereClauseCoulmns, String[] whereClauseValues) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("UPDATE ");
 		sb.append(table);
@@ -96,7 +97,7 @@ public class SingletonOfQueryGenerator {
 		return sb.toString();
 	}
 	
-	public String delete(String table, String[] whereClauseCoulmns, String[] whereClauseValues) {
+	protected String delete(String table, String[] whereClauseCoulmns, String[] whereClauseValues) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("DELETE FROM ");
 		sb.append(table);
@@ -106,7 +107,7 @@ public class SingletonOfQueryGenerator {
 		return sb.toString();
 	}
 
-	private String whereClauseBuilder(String[] whereClauseCoulmns, String[] whereClauseValues) {
+	protected String whereClauseBuilder(String[] whereClauseCoulmns, String[] whereClauseValues) {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < whereClauseCoulmns.length; i++) {
 			sb.append(whereClauseCoulmns[i]);

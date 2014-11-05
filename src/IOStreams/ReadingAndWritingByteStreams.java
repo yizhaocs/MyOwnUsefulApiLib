@@ -22,10 +22,10 @@ public class ReadingAndWritingByteStreams {
 		FileInputStream in = null;
 		FileOutputStream out = null;
 		try {
-			in = new FileInputStream("C:\\Users\\Yi\\Desktop\\inputSource.jpg");
+			in = new FileInputStream("image.png");
 			// When you're working with FileOutputStream you don't have to create the file first,
 			// you can simply start writing to it.
-			out = new FileOutputStream("C:\\Users\\Yi\\Desktop\\outputSource.jpg");
+			out = new FileOutputStream("/Users/yizhao/Desktop/outputSource.jpg");
 			int i;
 			while ((i = in.read()) != -1) {
 				out.write(i);
