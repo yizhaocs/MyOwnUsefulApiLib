@@ -4,6 +4,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
+
+import org.apache.commons.io.IOUtils;
 
 /*
  * References: http://www.lynda.com/Java-tutorials/Reading-writing-byte-streams/107061/113502-4.html
@@ -11,14 +14,14 @@ import java.io.IOException;
 public class ReadingAndWritingByteStreams {
 	public static void main(String[] args) {
 		try {
-			readIMAGEFileThenCopyIMAGEFile();
+			execute();
 		} catch (IOException e) {
 			System.out.println("Caught IOException: " + e.getMessage());
 		}
 	}
 
 	// 读一个input image file,难后新建一个 ouput image file, 最近将input image file的内容全部copy进output image file.
-	public static void readIMAGEFileThenCopyIMAGEFile() throws IOException {
+	public static void execute() throws IOException {
 		FileInputStream in = null;
 		FileOutputStream out = null;
 		try {
