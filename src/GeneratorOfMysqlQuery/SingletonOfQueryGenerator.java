@@ -1,4 +1,4 @@
-package MysqlQuery;
+package GeneratorOfMysqlQuery;
 
 
 public class SingletonOfQueryGenerator {
