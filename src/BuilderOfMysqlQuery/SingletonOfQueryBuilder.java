@@ -1,16 +1,16 @@
-package GeneratorOfMysqlQuery;
+package BuilderOfMysqlQuery;
 
 
-public class SingletonOfQueryGenerator {
-	private static SingletonOfQueryGenerator instance = null;
+public class SingletonOfQueryBuilder {
+	private static SingletonOfQueryBuilder instance = null;
 
-	private SingletonOfQueryGenerator() {
+	private SingletonOfQueryBuilder() {
 
 	}
 
-	public static SingletonOfQueryGenerator getInstance() {
+	public static SingletonOfQueryBuilder getInstance() {
 		if (instance == null) {
-			instance = new SingletonOfQueryGenerator();
+			instance = new SingletonOfQueryBuilder();
 		}
 		return instance;
 	}
