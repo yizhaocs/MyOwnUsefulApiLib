@@ -65,10 +65,18 @@ public class SingletonOfQueryBuilder {
 		return sb.toString();
 	}
 
-	protected String select(String a1, String table, String[] whereClauseCoulmns, String[] whereClauseOperator, String[] whereClauseValues) {
+	/*
+	 * SELECT A,B FROM tableName WHERE C='ZZZ' AND D='YYY' AND E='XXX' AND F>5;
+	 * */
+	protected String select(String[] columnsWillBeReturned, String table, String[] whereClauseCoulmns, String[] whereClauseOperator, String[] whereClauseValues) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("SELECT ");
-		sb.append(a1);
+		for (int i = 0; i < columnsWillBeReturned.length; i++) {
+			sb.append(columnsWillBeReturned[i]);
+			if (i + 1 < columnsWillBeReturned.length) {
+				sb.append(",");
+			}
+		}
 		sb.append(" FROM ");
 		sb.append(table);
 		sb.append(" WHERE ");
