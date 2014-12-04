@@ -6,7 +6,7 @@ package Threads;
 public class SingleThread {
 
     public static void main(String[] args){
-
+        singleThread();
     }
 
     public static void singleThread(){
