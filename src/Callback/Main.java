@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Exam exam = new Exam();
         //注册监听器
-        exam.registerStudentName(new Student() {
+        exam.registerStudentName(new StudentListener() {
             @Override
             public void myName() {
                 System.out.println("Yi Zhao");
