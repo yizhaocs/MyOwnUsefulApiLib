@@ -4,6 +4,10 @@ package LogicalPattern;
  * Created by yizhao on 12/10/14.
  */
 public class And {
+
+    /*
+   * Pattern: A&&B
+   * */
     public static void main(String[] args){
         and_pattern_1();
         and_pattern_2();
