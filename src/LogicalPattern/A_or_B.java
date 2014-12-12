@@ -3,7 +3,7 @@ package LogicalPattern;
 /**
  * Created by yizhao on 12/10/14.
  */
-public class Or {
+public class A_or_B {
 
     /*
    * Pattern: A||B
@@ -42,10 +42,10 @@ public class Or {
         boolean B = false;
 
         if(A || B){
-            System.out.println("statement_A");
+            System.out.println("statement_1");
             return;
         }
-        System.out.println("statement_B");
+        System.out.println("statement_2");
     }
 
     public static void or_pattern_B_2() {
@@ -53,13 +53,13 @@ public class Or {
         boolean B = false;
 
         if(A){
-            System.out.println("statement_A");
+            System.out.println("statement_1");
         }else{
             if(B){
-                System.out.println("statement_A");
+                System.out.println("statement_1");
                 return;
             }
-            System.out.println("statement_B");
+            System.out.println("statement_2");
         }
     }
 }

@@ -3,7 +3,7 @@ package LogicalPattern;
 /**
  * Created by yizhao on 12/10/14.
  */
-public class And {
+public class A_and_B {
 
     /*
    * Pattern: A&&B
@@ -18,7 +18,7 @@ public class And {
         boolean B = true;
 
         if(A && B){
-            System.out.println("statement");
+            System.out.println("statement_1");
         }
     }
 
@@ -28,7 +28,7 @@ public class And {
 
         if(A){
             if(B){
-                System.out.println("statement");
+                System.out.println("statement_1");
             }
         }
     }
