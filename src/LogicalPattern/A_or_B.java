@@ -20,7 +20,7 @@ public class A_or_B {
         boolean B = false;
 
         if(A || B){
-            System.out.println("statement_A");
+            System.out.println("statement_1");
         }
     }
 
@@ -29,10 +29,10 @@ public class A_or_B {
         boolean B = false;
 
         if(A){
-            System.out.println("statement_A");
+            System.out.println("statement_1");
         }else{
             if(B){
-                System.out.println("statement_A");
+                System.out.println("statement_1");
             }
         }
     }
