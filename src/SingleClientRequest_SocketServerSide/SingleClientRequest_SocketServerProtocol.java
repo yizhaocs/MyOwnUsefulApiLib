@@ -1,6 +1,8 @@
 package SingleClientRequest_SocketServerSide;
 
-
+/**
+ * Reference: http://docs.oracle.com/javase/tutorial/networking/sockets/clientServer.html
+ */
 /**
  * The SocketProtocol class implements the protocol that the client and server use to communicate.
  * This class keeps track of where the client and the server are in their conversation and serves up the server's response to the client's statements.

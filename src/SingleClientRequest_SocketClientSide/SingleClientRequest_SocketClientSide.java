@@ -7,7 +7,9 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
-
+/**
+ * Reference: http://docs.oracle.com/javase/tutorial/networking/sockets/clientServer.html
+ */
 public class SingleClientRequest_SocketClientSide {
     public static void main(String[] args) throws IOException {
 

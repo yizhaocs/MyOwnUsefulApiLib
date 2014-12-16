@@ -8,7 +8,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * Created by yizhao on 12/16/14.
+ * Reference: http://docs.oracle.com/javase/tutorial/networking/sockets/clientServer.html
  */
 public class SingleClientRequest_SocketServerSide {
     public static void main(String[] args) throws IOException {
