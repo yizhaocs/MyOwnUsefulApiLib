@@ -28,7 +28,7 @@ public class MultiSocketsServerThread extends Thread {
             out.println("connection is setup between server and client");
 
             while ((inputLine = in.readLine()) != null) {
-                out.println("Server recieved: " + inputLine);
+                out.println("echo " + inputLine);
                 if (inputLine.equals("Bye")){
                     break;
                 }
