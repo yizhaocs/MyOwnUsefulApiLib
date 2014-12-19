@@ -3,7 +3,7 @@ package Threads;
 /**
  * Created by yizhao on 12/4/14.
  */
-public class SingleThread {
+public class SingleThread_SimplestWay {
 
     public static void main(String[] args){
         singleThread();
