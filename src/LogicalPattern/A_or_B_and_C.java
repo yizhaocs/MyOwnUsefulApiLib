@@ -10,6 +10,7 @@ public class A_or_B_and_C {
     public static void main(String[] args) {
         pattern_1();
         pattern_2();
+        pattern_3();
 
     }
 
@@ -40,6 +41,19 @@ public class A_or_B_and_C {
             }
         } else if (B) {
             if (C) {
+                System.out.println("statement_1");
+            }
+        }
+    }
+
+    public static void pattern_3() {
+        boolean A = true;
+        boolean B = true;
+        boolean C = true;
+        if (C) {
+            if (A) {
+                System.out.println("statement_1");
+            } else if (B) {
                 System.out.println("statement_1");
             }
         }
