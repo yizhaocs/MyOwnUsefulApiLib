@@ -3,9 +3,9 @@ package Threads;
 /**
  * Created by yizhao on 12/19/14.
  */
-public class MultiThread_Main {
+public class MultiThread_ThreadPoolExecutor_Main {
     public static void main(String[] args) {
-        MultiThread_Implementation mMultiThread_Implementation = new MultiThread_Implementation();
+        MultiThread_ThreadPoolExecutor_Implementation mMultiThread_Implementation = new MultiThread_ThreadPoolExecutor_Implementation();
         mMultiThread_Implementation.multiThreadDemoForSingleThread_ExtendsThreads();
 
         try {

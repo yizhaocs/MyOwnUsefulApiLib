@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Reference: Android SDK 4.42, public class ThreadPoolExecutor extends AbstractExecutorService
  */
-public class MultiThread_Implementation {
+public class MultiThread_ThreadPoolExecutor_Implementation {
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     private static final int CORE_POOL_SIZE = CPU_COUNT + 1;
     private static final int MAXIMUM_POOL_SIZE = CPU_COUNT * 2 + 1;
