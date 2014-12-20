@@ -4,7 +4,7 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Reference: Android SDK 4.42, public class ThreadPoolExecutor extends AbstractExecutorService
+ * Reference: Android SDK 4.4.2的AsyncTask.class
  */
 public class MultiThread_ThreadPoolExecutor_Implementation {
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
