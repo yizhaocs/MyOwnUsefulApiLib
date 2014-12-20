@@ -24,9 +24,9 @@ public class MultiThread_ThreadPoolExecutor_Implementation {
     public void multiThreadDemoForSingleThread_ExtendsThreads() {
         ThreadPoolExecutor mThreadPoolExecutor = new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, KEEP_ALIVE, TimeUnit.SECONDS, sPoolWorkQueue, sThreadFactory);
         mThreadPoolExecutor.execute(new SingleThread_ExtendsThreads_Implementation(10));
-        mThreadPoolExecutor.execute(new SingleThread_ExtendsThreads_Implementation(10));
-        mThreadPoolExecutor.execute(new SingleThread_ExtendsThreads_Implementation(10));
-        mThreadPoolExecutor.execute(new SingleThread_ExtendsThreads_Implementation(10));
+        mThreadPoolExecutor.execute(new SingleThread_ExtendsThreads_Implementation(20));
+        mThreadPoolExecutor.execute(new SingleThread_ExtendsThreads_Implementation(30));
+        mThreadPoolExecutor.execute(new SingleThread_ExtendsThreads_Implementation(40));
     }
 
 
