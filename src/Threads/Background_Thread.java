@@ -1,7 +1,7 @@
 package Threads;
 
 /**
- * Created by yizhao on 12/29/14.
+ * Reference: https://www.youtube.com/watch?v=Z2YogvILjvo
  */
 public class Background_Thread {
     Task mTask;
