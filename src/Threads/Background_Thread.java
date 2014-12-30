@@ -12,7 +12,7 @@ public class Background_Thread {
 
     private class Task implements Runnable {
         Thread t = null;
-        boolean isItOk = false;
+        boolean isItOK = false;
 
         private Task() {
 
@@ -20,13 +20,13 @@ public class Background_Thread {
 
         @Override
         public void run() {
-            while (isItOk) {
+            while (isItOK) {
 
             }
         }
 
         public void pause() {
-            isItOk = false;
+            isItOK = false;
             while (true) {
                 try {
                     t.join();
@@ -36,6 +36,12 @@ public class Background_Thread {
                 break;
 
             }
+        }
+
+        public void resume() {
+            isItOK = true;
+            t = new Thread(this);
+            t.start();
         }
     }
 }
