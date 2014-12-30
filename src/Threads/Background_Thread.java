@@ -36,6 +36,7 @@ public class Background_Thread {
                 break;
 
             }
+            t = null;
         }
 
         public void resume() {
