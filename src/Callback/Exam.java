@@ -4,14 +4,14 @@ package Callback;
  * Created by yizhao on 12/7/14.
  */
 public class Exam {
-    private StudentListener student;
+    private StudentNameListener student;
 
     /**
      * 设置具体点击监听器
      *
      * @param student 点击监听器实现类
      */
-    public void registerStudentName(StudentListener student) {
+    public void setStudentNameListener(StudentNameListener student) {
         this.student = student;
     }
 
