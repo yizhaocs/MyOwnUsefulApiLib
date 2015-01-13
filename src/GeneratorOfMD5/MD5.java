@@ -6,8 +6,8 @@ import java.security.NoSuchAlgorithmException;
 
 public class MD5 {
 	public static void main(String[] args) {
-		System.out.println(execute("123")); // 202cb962ac59075b964b07152d234b70
-		System.out.println(execute("321")); // caf1a3dfb505ffed0d024130f58c5cfa
+		System.out.println(execute("20a0db86-b3b4-47e4-98dd-8a3c44fd55500B:9B:F6:9F:CB:43:7C:51:C2:EC:A6:19:DB:50:1D:A9:E1:B4:29:39com.fuhu.nabi.wings.workbook")); // 202cb962ac59075b964b07152d234b70
+		System.out.println(execute("d7b7ce02-529b-4295-910e-f159559f736d0B:9B:F6:9F:CB:43:7C:51:C2:EC:A6:19:DB:50:1D:A9:E1:B4:29:39com.fuhu.nabi.wings.workbook")); // caf1a3dfb505ffed0d024130f58c5cfa
 	}
 
 	/*
