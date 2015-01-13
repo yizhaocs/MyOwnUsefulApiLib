@@ -11,14 +11,14 @@ public class Main {
         Student zhaoyi =  new Student() {
             @Override
             public void name() {
-                System.out.println("Yi Zhao");
+                System.out.println("赵毅");
             }
         };
 
         Student zhangsan =  new Student() {
             @Override
             public void name() {
-                System.out.println("San Zhang");
+                System.out.println("张三");
             }
         };
                 
