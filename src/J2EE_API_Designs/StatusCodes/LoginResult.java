@@ -1,4 +1,4 @@
-package J2EE_API_Designs;
+package J2EE_API_Designs.StatusCodes;
 
 /**
  * Created by yizhao on 1/21/15.

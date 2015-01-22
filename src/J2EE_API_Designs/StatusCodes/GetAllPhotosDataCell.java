@@ -1,4 +1,4 @@
-package J2EE_API_Designs;
+package J2EE_API_Designs.StatusCodes;
 
 import java.util.List;
 
