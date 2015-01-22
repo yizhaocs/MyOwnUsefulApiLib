@@ -18,5 +18,4 @@ public class Constants {
     public static final String STATUS_CODE_APIKEY_NULL = "108";
 
     public static final String INVALID_SESSION_OR_BAD_SESSION_AUTH_PAIR = "120";
-
 }
