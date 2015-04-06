@@ -3,9 +3,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>MyOwnUsefulApiLib</groupId>
 	<artifactId>MyOwnUsefulApiLib</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>HadoopApis</module>
+        <module>GeneralApis</module>
+    </modules>
 
-	<dependencies>
+    <dependencies>
 		<!-- For IOUtils (Apache Commons IO 2.4 API) -->
 		<dependency>
 			<groupId>commons-io</groupId>
