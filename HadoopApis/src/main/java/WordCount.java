@@ -19,7 +19,7 @@ import java.util.StringTokenizer;
 
 public class WordCount {
 
-	public static class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
+	public static class mMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 		private final static IntWritable one = new IntWritable(1);
 		private Text word = new Text();
 
@@ -33,7 +33,7 @@ public class WordCount {
 		}
 	}
 
-	public static class Reduce extends Reducer<Text, IntWritable, Text, IntWritable> {
+	public static class mReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
 		public void reduce(Text key, Iterator<IntWritable> values, Context context) throws IOException, InterruptedException {
 			int sum = 0;
 			while (values.hasNext()) {
@@ -52,12 +52,12 @@ public class WordCount {
 
 		Job job = new Job(conf, "wordcount");
 
-		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(IntWritable.class);
-
-		job.setMapperClass(Map.class);
-		job.setReducerClass(Reduce.class);
-
+		job.setMapperClass(mMapper.class);
+		job.setReducerClass(mReducer.class);
+        //此处的设置是最终输出的key/value，一定要注意！
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
+        //再次理解此处设置的输入输出格式。。。它表示的是一种对文件划分，索引的方法
 		job.setInputFormatClass(TextInputFormat.class);
 		job.setOutputFormatClass(TextOutputFormat.class);
 

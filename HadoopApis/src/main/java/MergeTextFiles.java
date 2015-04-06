@@ -33,11 +33,14 @@ public class MergeTextFiles {
 		Configuration conf = new Configuration();
 		Job job = new Job(conf);
 		job.setJobName("MergeTextFiles");
-		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(Text.class);
+
 		job.setMapperClass(mMapper.class);
 		job.setCombinerClass(mReducer.class);
 		job.setReducerClass(mReducer.class);
+        //此处的设置是最终输出的key/value，一定要注意！
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(Text.class);
+        //再次理解此处设置的输入输出格式。。。它表示的是一种对文件划分，索引的方法
 		job.setInputFormatClass(TextInputFormat.class);
 		job.setOutputFormatClass(TextOutputFormat.class);
 		FileInputFormat.setInputPaths(job, new Path("/Users/yizhao/Desktop/input"));
