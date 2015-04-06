@@ -10,15 +10,18 @@ import java.io.IOException;
 /**
  * Created by yizhao on 4/3/15.
  */
-public class MergeSequenceFiles {
-    public static void mergeFile() {
-        String hadoopFS = "hdfs://localhost:9000/";
-        Configuration conf = new Configuration();
-        conf.set("fs.defaultFS", hadoopFS);
+public class MergeSequenceFilesUsingFileUtil {
+    static String hadoopFS = "hdfs://localhost:9000/";
+    static String defaultFS = "fs.defaultFS";
+    static Configuration conf = new Configuration();
+    static String srcPath = "/fuhu/logs/kafka/logging_consumer/temp";
+    static String dstPath = "/fuhu/logs/kafka/logging_consumer/mergedOutput/mergedFile.log";
 
-        String srcPath = "/fuhu/logs/kafka/logging_consumer/temp";
-        String dstPath = "/fuhu/logs/kafka/logging_consumer/mergedOutput/mergedFile.log";
+    static {
+        conf.set(defaultFS, hadoopFS);
+    }
 
+    public static void mergeFilesUsingFileUtil() {
         try {
             FileSystem hdfs = FileSystem.get(conf);
             FileUtil.copyMerge(hdfs, new Path(srcPath), hdfs, new Path(dstPath), false, conf, null);
@@ -29,6 +32,6 @@ public class MergeSequenceFiles {
 
 
     public static void main(String[] args) throws Exception {
-        mergeFile();
+        // mergeFilesUsingFileUtil();
     }
 }
