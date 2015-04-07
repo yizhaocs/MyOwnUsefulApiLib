@@ -16,7 +16,10 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-public class WordCount {
+/**
+ * Created by yizhao on 4/6/15.
+ */
+public class SortWords {
 
     public static class mMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
         private final static IntWritable one = new IntWritable(1);
@@ -34,11 +37,13 @@ public class WordCount {
 
     public static class mReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
         public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
-            int sum = 0;
-            for (IntWritable val : values) {
-                sum += val.get();
-            }
-            context.write(key, new IntWritable(sum));
+//            int sum = 0;
+//            for (IntWritable val : values) {
+//                sum += val.get();
+//            }
+//            for(int i = 0; i <= sum ; i++) {
+                context.write(key, new IntWritable(1));
+         //   }
         }
     }
 
@@ -49,7 +54,7 @@ public class WordCount {
         //conf.set("fs.defaultFS", hadoopFS);
         //org.apache.hadoop.fs.Path path = new org.apache.hadoop.fs.Path(sequenceFileName);
 
-        Job job = new Job(conf, "wordcount");
+        Job job = new Job(conf, "Sort Words");
 
         job.setMapperClass(mMapper.class);
         job.setCombinerClass(mReducer.class);
