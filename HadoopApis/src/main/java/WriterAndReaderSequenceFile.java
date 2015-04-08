@@ -12,8 +12,8 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.Iterator;
 
-public class WriterAndReader {
-	private final static Logger log = LoggerFactory.getLogger(WriterAndReader.class);
+public class WriterAndReaderSequenceFile {
+	private final static Logger log = LoggerFactory.getLogger(WriterAndReaderSequenceFile.class);
 	private final static Text EMPTY_KEY = new Text();
 	// private static String hadoopFS = "hdfs://name01.hdp-dev-us-e.fuhu.org/";
 	private static String hadoopFS = "hdfs://localhost:9000/";
