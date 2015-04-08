@@ -20,7 +20,7 @@ public class SequenceFileGenerator {
     public static class BinaryFilesToHadoopSequenceFileMapper extends Mapper<Object, Text, Text, BytesWritable> {
         public void map(Object key, Text value, Context context)
                 throws IOException, InterruptedException {
-            context.write(new Text("/Users/yizhao/Desktop/a.png"), new BytesWritable("a".getBytes()));
+            context.write(new Text("a"), new BytesWritable("b".getBytes()));
         }
     }
 
@@ -35,7 +35,6 @@ public class SequenceFileGenerator {
         job.setOutputFormatClass(SequenceFileOutputFormat.class);
         String srcPath = "/Users/yizhao/Desktop/a.png";
         String dstPath = "/Users/yizhao/Desktop/output";
-
         FileInputFormat.setInputPaths(job, new Path(srcPath));
         FileOutputFormat.setOutputPath(job, new Path(dstPath));
         System.exit(job.waitForCompletion(true)?0:1);
