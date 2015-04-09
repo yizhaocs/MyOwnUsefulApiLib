@@ -8,6 +8,7 @@
     <modules>
         <module>HadoopApis</module>
         <module>GeneralApis</module>
+        <module>Spring3QuartzScheduler</module>
     </modules>
 
     <dependencies>
