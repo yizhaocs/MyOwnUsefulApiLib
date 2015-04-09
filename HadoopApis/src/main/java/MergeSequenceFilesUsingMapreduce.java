@@ -2,11 +2,12 @@ package main.java;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.BytesWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat;
 
@@ -16,11 +17,10 @@ import java.io.IOException;
  * Created by yizhao on 4/6/15.
  */
 public class MergeSequenceFilesUsingMapreduce {
-    public static class BinaryFilesToHadoopSequenceFileMapper extends Mapper<Object, Text, Text, Text> {
-        public void map(Object key, Text value, Context context)
+    public static class BinaryFilesToHadoopSequenceFileMapper extends Mapper<Object, BytesWritable, Text, BytesWritable> {
+        public void map(Object key, BytesWritable value, Context context)
                 throws IOException, InterruptedException {
-            System.out.println(value.toString());
-            context.write(new Text("TextFileToSequenceFile_key"), value);
+            context.write(new Text("MergeSequenceFilesUsingMapreduce"), value);
         }
     }
 
@@ -30,8 +30,8 @@ public class MergeSequenceFilesUsingMapreduce {
         job.setJarByClass(BinaryFilesToHadoopSequenceFileMapper.class);
         job.setMapperClass(BinaryFilesToHadoopSequenceFileMapper.class);
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(Text.class);
-        job.setInputFormatClass(TextInputFormat.class);
+        job.setOutputValueClass(BytesWritable.class);
+        job.setInputFormatClass(SequenceFileInputFormat.class);
         job.setOutputFormatClass(SequenceFileOutputFormat.class);
         String srcPath = "/Users/yizhao/Desktop/txtfiles";
         String dstPath = "/Users/yizhao/Desktop/output";
