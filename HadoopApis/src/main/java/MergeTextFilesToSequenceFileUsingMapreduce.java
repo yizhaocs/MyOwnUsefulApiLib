@@ -17,7 +17,7 @@ import java.io.IOException;
  * Created by yizhao on 4/7/15.
  */
 public class MergeTextFilesToSequenceFileUsingMapreduce {
-    public static class BinaryFilesToHadoopSequenceFileMapper extends Mapper<Object, Text, Text, Text> {
+    public static class mMapper extends Mapper<Object, Text, Text, Text> {
         public void map(Object key, Text value, Context context)
                 throws IOException, InterruptedException {
             System.out.println(value.toString());
@@ -28,8 +28,8 @@ public class MergeTextFilesToSequenceFileUsingMapreduce {
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
         Job job = new Job(conf, "TextFileToSequenceFile");
-        job.setJarByClass(BinaryFilesToHadoopSequenceFileMapper.class);
-        job.setMapperClass(BinaryFilesToHadoopSequenceFileMapper.class);
+        job.setJarByClass(mMapper.class);
+        job.setMapperClass(mMapper.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
         job.setInputFormatClass(TextInputFormat.class);
