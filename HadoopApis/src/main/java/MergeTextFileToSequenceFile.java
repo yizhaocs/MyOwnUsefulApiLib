@@ -16,7 +16,7 @@ import java.io.IOException;
 /**
  * Created by yizhao on 4/7/15.
  */
-public class TextFileToSequenceFile {
+public class MergeTextFileToSequenceFile {
     public static class BinaryFilesToHadoopSequenceFileMapper extends Mapper<Object, Text, Text, Text> {
         public void map(Object key, Text value, Context context)
                 throws IOException, InterruptedException {
