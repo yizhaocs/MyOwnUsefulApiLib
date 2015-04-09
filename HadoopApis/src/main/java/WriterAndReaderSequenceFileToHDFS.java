@@ -12,8 +12,8 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.Iterator;
 
-public class WriterAndReaderSequenceFile {
-	private final static Logger log = LoggerFactory.getLogger(WriterAndReaderSequenceFile.class);
+public class WriterAndReaderSequenceFileToHDFS {
+	private final static Logger log = LoggerFactory.getLogger(WriterAndReaderSequenceFileToHDFS.class);
 	private final static Text EMPTY_KEY = new Text();
 	// private static String hadoopFS = "hdfs://name01.hdp-dev-us-e.fuhu.org/";
 	private static String hadoopFS = "hdfs://localhost:9000/";
@@ -33,7 +33,12 @@ public class WriterAndReaderSequenceFile {
 		}
 	}
 
-	public void writeToSequenceFile(String data) {
+    public static void main(String[] args) {
+        writeToSequenceFile("a");
+        readSequenceFile();
+    }
+
+	public static void writeToSequenceFile(String data) {
 		if ((conf != null) && (data != null)) {
 			BytesWritable value = new BytesWritable(data.getBytes());
 			try {
@@ -50,7 +55,7 @@ public class WriterAndReaderSequenceFile {
 			}
 		}
 	}
-	public void readSequenceFile() {
+	public static void readSequenceFile() {
 		String hadoopFS = "hdfs://localhost:9000/";
 		String sequenceFileName = "/fuhu/logs/kafka/logging_consumer/temp/test.log";
 		Configuration conf = new Configuration();
@@ -71,7 +76,7 @@ public class WriterAndReaderSequenceFile {
 		}
 	}
 
-	public void listHadoopConfiguration(Configuration conf) {
+	public static void listHadoopConfiguration(Configuration conf) {
 		int i = 0;
 		System.out.println("------------------------------------------------------------------------------------------");
 		Iterator<?> iterator = conf.iterator();
@@ -84,7 +89,7 @@ public class WriterAndReaderSequenceFile {
 	}
 
 	// suffixTo) throws IOException
-	private void closeWriter() throws IOException {
+	private static void closeWriter() throws IOException {
 		IOUtils.closeStream(writer);
 	}
 
