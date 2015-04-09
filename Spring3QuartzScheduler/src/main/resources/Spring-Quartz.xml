@@ -4,16 +4,16 @@
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 
-    <bean id="runMeTask" class="main.java.RunMeTask" />
+    <bean id="runMeTask" class="main.java.RunMeTask"/>
 
     <!-- Spring Quartz -->
     <bean name="runMeJob" class="org.springframework.scheduling.quartz.JobDetailBean">
 
-        <property name="jobClass" value="main.java.RunMeJob" />
+        <property name="jobClass" value="main.java.RunMeJob"/>
 
         <property name="jobDataAsMap">
             <map>
-                <entry key="runMeTask" value-ref="runMeTask" />
+                <entry key="runMeTask" value-ref="runMeTask"/>
             </map>
         </property>
 
@@ -24,32 +24,41 @@
         value="printMe" /> </bean> -->
 
     <!-- Simple Trigger, run every 5 seconds -->
+    <!--It allows to set the start time, end time, repeat interval to run your job.-->
     <bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
 
-        <property name="jobDetail" ref="runMeJob" />
-        <property name="repeatInterval" value="5000" />
-        <property name="startDelay" value="1000" />
+        <property name="jobDetail" ref="runMeJob"/>
+        <property name="repeatInterval" value="5000"/>
+        <property name="startDelay" value="1000"/>
 
     </bean>
 
     <!-- Cron Trigger, run every 5 seconds -->
+    <!--It allows Unix cron expression to specify the dates and times to run your job.-->
+    <!--
+        Note:
+             The Unix cron expression is highly flexible and powerful, read more in following websites :
+             http://en.wikipedia.org/wiki/Cron#CRON_expression
+             http://www.quartz-scheduler.org/docs/examples/Example3.html
+             -->
     <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
 
-        <property name="jobDetail" ref="runMeJob" />
-        <property name="cronExpression" value="0/5 * * * * ?" />
+        <property name="jobDetail" ref="runMeJob"/>
+        <property name="cronExpression" value="0/5 * * * * ?"/>
 
     </bean>
 
+    <!--Create a Scheduler factory bean to integrate both job detail and trigger together.-->
     <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
         <property name="jobDetails">
             <list>
-                <ref bean="runMeJob" />
+                <ref bean="runMeJob"/>
             </list>
         </property>
 
         <property name="triggers">
             <list>
-                <ref bean="simpleTrigger" />
+                <ref bean="simpleTrigger"/>
             </list>
         </property>
     </bean>
