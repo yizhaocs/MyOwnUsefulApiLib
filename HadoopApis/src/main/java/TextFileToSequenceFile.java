@@ -20,20 +20,21 @@ public class TextFileToSequenceFile {
     public static class BinaryFilesToHadoopSequenceFileMapper extends Mapper<Object, Text, Text, Text> {
         public void map(Object key, Text value, Context context)
                 throws IOException, InterruptedException {
-            context.write(new Text("a"), value);
+            System.out.println(value.toString());
+            context.write(new Text("TextFileToSequenceFile_key"), value);
         }
     }
 
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
-        Job job = new Job(conf, "BinaryFilesToHadoopSequenceFile");
+        Job job = new Job(conf, "TextFileToSequenceFile");
         job.setJarByClass(BinaryFilesToHadoopSequenceFileMapper.class);
         job.setMapperClass(BinaryFilesToHadoopSequenceFileMapper.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
         job.setInputFormatClass(TextInputFormat.class);
         job.setOutputFormatClass(SequenceFileOutputFormat.class);
-        String srcPath = "/Users/yizhao/Desktop/a.txt";
+        String srcPath = "/Users/yizhao/Desktop/txtfiles";
         String dstPath = "/Users/yizhao/Desktop/output";
         FileInputFormat.setInputPaths(job, new Path(srcPath));
         FileOutputFormat.setOutputPath(job, new Path(dstPath));
