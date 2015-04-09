@@ -29,7 +29,6 @@ public class MergeSequenceFilesUsingMapreduce {
         Job job = new Job(conf, "MergeSequenceFilesUsingMapreduce");
         job.setJarByClass(mMapper.class);
         job.setMapperClass(mMapper.class);
-        //job.setNumReduceTasks(1);
         job.setOutputKeyClass(NullWritable.class);
         job.setOutputValueClass(BytesWritable.class);
         job.setInputFormatClass(SequenceFileInputFormat.class);
