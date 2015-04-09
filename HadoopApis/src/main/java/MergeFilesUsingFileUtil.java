@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Created by yizhao on 4/3/15.
  */
-public class MergeSequenceFilesUsingFileUtil {
+public class MergeFilesUsingFileUtil {
     static String hadoopFS = "hdfs://localhost:9000/";
     static String defaultFS = "fs.defaultFS";
     static Configuration conf = new Configuration();
