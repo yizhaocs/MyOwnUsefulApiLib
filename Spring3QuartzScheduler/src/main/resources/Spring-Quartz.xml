@@ -33,7 +33,7 @@
 
     </bean>
 
-    <!-- Cron fixed Timer Trigger, run every day at 14:13 -->
+    <!-- fixed Timer Trigger, run every day at 14:13 -->
     <!--It allows Unix cron expression to specify the dates and times to run your job.-->
     <!--
         Note:
