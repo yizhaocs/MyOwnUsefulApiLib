@@ -33,7 +33,7 @@
 
     </bean>
 
-    <!-- fixed Timer Trigger, run every day at 14:13 -->
+    <!-- fixed Timer Cron Trigger, run every day at 14:13 -->
     <!--It allows Unix cron expression to specify the dates and times to run your job.-->
     <!--
         Note:
@@ -41,7 +41,7 @@
              http://en.wikipedia.org/wiki/Cron#CRON_expression
              http://www.quartz-scheduler.org/docs/examples/Example3.html
              -->
-    <bean id="fixedTimerTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <bean id="fixedTimerCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
 
         <property name="jobDetail" ref="runMeJob"/>
         <property name="cronExpression" value="0 13 14 1/1 * ?"/>
