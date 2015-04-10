@@ -23,9 +23,9 @@
         <property name="targetObject" ref="runMeTask" /> <property name="targetMethod"
         value="printMe" /> </bean> -->
 
-    <!-- Simple Trigger, run every 5 seconds -->
+    <!-- repeated timer Trigger, run every 5 seconds -->
     <!--It allows to set the start time, end time, repeat interval to run your job.-->
-    <bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+    <bean id="repeatedTimerTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
 
         <property name="jobDetail" ref="runMeJob"/>
         <property name="repeatInterval" value="5000"/>
@@ -33,7 +33,7 @@
 
     </bean>
 
-    <!-- Cron Trigger, run every 5 seconds -->
+    <!-- Cron fixed Timer Trigger, run every day at 14:13 -->
     <!--It allows Unix cron expression to specify the dates and times to run your job.-->
     <!--
         Note:
@@ -41,10 +41,10 @@
              http://en.wikipedia.org/wiki/Cron#CRON_expression
              http://www.quartz-scheduler.org/docs/examples/Example3.html
              -->
-    <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <bean id="fixedTimerTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
 
         <property name="jobDetail" ref="runMeJob"/>
-        <property name="cronExpression" value="0/5 * * * * ?"/>
+        <property name="cronExpression" value="0 13 14 1/1 * ?"/>
 
     </bean>
 
@@ -58,7 +58,7 @@
 
         <property name="triggers">
             <list>
-                <ref bean="simpleTrigger"/>
+                <ref bean="repeatedTimerTrigger"/>
             </list>
         </property>
     </bean>
