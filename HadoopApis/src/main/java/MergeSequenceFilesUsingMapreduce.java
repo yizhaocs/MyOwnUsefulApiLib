@@ -37,6 +37,7 @@ public class MergeSequenceFilesUsingMapreduce {
         String dstPath = "/Users/yizhao/Desktop/output";
         FileInputFormat.setInputPaths(job, new Path(srcPath));
         FileOutputFormat.setOutputPath(job, new Path(dstPath));
-        System.exit(job.waitForCompletion(true) ? 0 : 1);
+        boolean result = job.waitForCompletion(true);
+        System.exit(result ? 0 : 1);
     }
 }

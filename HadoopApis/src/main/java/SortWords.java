@@ -68,6 +68,7 @@ public class SortWords {
 
         FileInputFormat.addInputPath(job, new Path("/Users/yizhao/Desktop/mergedOutput"));
         FileOutputFormat.setOutputPath(job, new Path("/Users/yizhao/Desktop/output"));
-        System.exit(job.waitForCompletion(true) ? 0 : 1);
+        boolean result = job.waitForCompletion(true);
+        System.exit(result ? 0 : 1);
     }
 }
