@@ -12,6 +12,8 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by yizhao on 4/6/15.
@@ -37,7 +39,17 @@ public class MergeSequenceFilesUsingMapreduce {
         String dstPath = "/Users/yizhao/Desktop/output";
         FileInputFormat.setInputPaths(job, new Path(srcPath));
         FileOutputFormat.setOutputPath(job, new Path(dstPath));
+        System.out.println("Mapreduce starting:" + getCurrentDateTime());
         boolean result = job.waitForCompletion(true);
+        if(result){
+            System.out.println("Mapreduce finished:" + getCurrentDateTime());
+        }
         System.exit(result ? 0 : 1);
+    }
+
+    public static String getCurrentDateTime() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+        Date date = new Date();
+        return dateFormat.format(date).toString();
     }
 }
