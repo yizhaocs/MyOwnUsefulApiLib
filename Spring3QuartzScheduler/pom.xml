@@ -11,10 +11,6 @@
 
     <artifactId>Spring3QuatzSchedulerExample</artifactId>
 
-    <properties>
-        <spring.version>3.2.5.RELEASE</spring.version>
-    </properties>
-
     <dependencies>
 
         <!-- Spring 3 dependencies -->
@@ -48,7 +44,6 @@
     </dependencies>
 
     <build>
-        <finalName>SpringExample</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

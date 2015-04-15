@@ -9,31 +9,12 @@
         <module>HadoopApis</module>
         <module>GeneralApis</module>
         <module>Spring3QuartzScheduler</module>
+        <module>SpringReadPropertiesFile</module>
     </modules>
 
-    <dependencies>
-		<!-- For IOUtils (Apache Commons IO 2.4 API) -->
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.4</version>
-		</dependency>
-
-		<!--Test dependencies -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.5</version>
-		</dependency>
-	</dependencies>
-
+    <properties>
+        <spring.version>3.2.5.RELEASE</spring.version>
+    </properties>
 
 	<build>
 		<sourceDirectory>src</sourceDirectory>
