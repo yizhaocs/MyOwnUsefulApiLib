@@ -9,8 +9,9 @@
         <module>HadoopApis</module>
         <module>GeneralApis</module>
         <module>Spring3QuartzScheduler</module>
-        <module>SpringReadPropertiesFile</module>
-    </modules>
+		<module>SpringSetterInjection</module>
+		<module>SpringReadProperties</module>
+	</modules>
 
     <properties>
         <spring.version>3.2.5.RELEASE</spring.version>

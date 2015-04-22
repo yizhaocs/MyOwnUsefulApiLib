@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
  * Created by yizhao on 4/22/15.
  */
 public class Properties {
-    private boolean flag;
+    private Boolean flag;
 
     public boolean isFlag() {
         return flag;
