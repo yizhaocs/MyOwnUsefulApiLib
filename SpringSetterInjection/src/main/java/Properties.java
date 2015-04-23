@@ -14,7 +14,6 @@ public class Properties {
     }
 
     @Autowired(required = true)
-    @Qualifier("Flag")
     public void setFlag(boolean flag) {
         this.flag = flag;
     }
