@@ -24,6 +24,7 @@ public class Main {
         DeserializationArray();
         SerializationCollections();
         DeserializationCollections();
+        NestedJsonObject();
 
     }
 
@@ -109,5 +110,15 @@ public class Main {
         java.lang.reflect.Type collectionType = new TypeToken<Collection<Integer>>(){}.getType();
         List<Integer> ints2 = gson.fromJson(json, collectionType);
         System.out.println(ints2); // [1, 2, 3, 4, 5]
+    }
+
+    private static void NestedJsonObject() {
+        NestedJsonObject obj = new NestedJsonObject();
+        String json = gson.toJson(obj);
+        System.out.println(json); // {"user":{"firstName":"Yi","lastName":"Zhao","email":"yizhao.cs@gmail.com","password":"123456"}}
+
+        NestedJsonObject obj2 = gson.fromJson(json, NestedJsonObject.class);
+        String json2 = gson.toJson(obj2);
+        System.out.println(json2); // {"user":{"firstName":"Yi","lastName":"Zhao","email":"yizhao.cs@gmail.com","password":"123456"}}
     }
 }
