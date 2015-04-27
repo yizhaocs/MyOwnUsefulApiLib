@@ -1,6 +1,5 @@
 package main.java;
 
-import java.awt.Window.Type;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
@@ -25,6 +24,7 @@ public class Main {
         SerializationCollections();
         DeserializationCollections();
         NestedJsonObject();
+        NestedJsonObject2();
 
     }
 
@@ -117,7 +117,17 @@ public class Main {
         String json = gson.toJson(obj);
         System.out.println(json); // {"user":{"firstName":"Yi","lastName":"Zhao","email":"yizhao.cs@gmail.com","password":"123456"}}
 
-        NestedJsonObject obj2 = gson.fromJson(json, NestedJsonObject.class);
+        NestedJsonObject2 obj2 = gson.fromJson(json, NestedJsonObject2.class);
+        String json2 = gson.toJson(obj2);
+        System.out.println(json2); // {"user":{"firstName":"Yi","lastName":"Zhao","email":"yizhao.cs@gmail.com","password":"123456"}}
+    }
+
+    private static void NestedJsonObject2() {
+        NestedJsonObject2 obj = new NestedJsonObject2("YI", "ZHAO", "HAHA", "DD");
+        String json = gson.toJson(obj);
+        System.out.println(json); // {"user":{"firstName":"Yi","lastName":"Zhao","email":"yizhao.cs@gmail.com","password":"123456"}}
+
+        NestedJsonObject2 obj2 = gson.fromJson(json, NestedJsonObject2.class);
         String json2 = gson.toJson(obj2);
         System.out.println(json2); // {"user":{"firstName":"Yi","lastName":"Zhao","email":"yizhao.cs@gmail.com","password":"123456"}}
     }

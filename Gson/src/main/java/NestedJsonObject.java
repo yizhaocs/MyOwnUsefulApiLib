@@ -8,13 +8,13 @@ public class NestedJsonObject {
 
     class User {
 
-        public String firstName="Yi";
-        public String lastName="Zhao";
-        public String email="yizhao.cs@gmail.com";
-        public String password="123456";
+        public String firstName = "Yi";
+        public String lastName = "Zhao";
+        public String email = "yizhao.cs@gmail.com";
+        public String password = "123456";
 
         public User() {
-            // No args constructor for B
+
         }
     }
 }
