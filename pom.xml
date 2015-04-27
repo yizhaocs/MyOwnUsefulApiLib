@@ -11,6 +11,7 @@
         <module>Spring3QuartzScheduler</module>
 		<module>SpringSetterInjection</module>
 		<module>SpringReadProperties</module>
+		<module>Gson</module>
 	</modules>
 
     <properties>
