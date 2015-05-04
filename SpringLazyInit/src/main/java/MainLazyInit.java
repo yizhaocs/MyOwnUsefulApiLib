@@ -3,7 +3,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Created by yizhao on 5/4/15.
+ * Reference: http://www.javabeat.net/how-to-lazy-initialize-spring-beans/
  */
 public class MainLazyInit {
     public static void main(String args[]) {

@@ -1,7 +1,7 @@
 package main.java;
 
 /**
- * Created by yizhao on 5/4/15.
+ * Reference: http://www.javabeat.net/how-to-lazy-initialize-spring-beans/
  */
 public class Employee {
     private String name;
