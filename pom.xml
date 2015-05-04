@@ -14,6 +14,7 @@
 		<module>JsonOfJackson</module>
 		<module>JsonOfGson</module>
 		<module>SpringLazyInit</module>
+		<module>FuhuSocial</module>
 	</modules>
 
     <properties>
