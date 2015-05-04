@@ -13,6 +13,7 @@
 		<module>SpringReadProperties</module>
 		<module>JsonOfJackson</module>
 		<module>JsonOfGson</module>
+		<module>SpringLazyInit</module>
 	</modules>
 
     <properties>
