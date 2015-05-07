@@ -30,8 +30,8 @@ public class ScanningTokenizedText {
 	public static void scanLineByLine() throws IOException {
 		Scanner s = new Scanner(new File("/Users/yizhao/Desktop/zenefitTest1.txt"));
 		while(s.hasNextLine()){
-			String firstLine = s.nextLine();
-			System.out.println(firstLine);
+			String line = s.nextLine();
+			System.out.println(line);
 		}
 	}
 
