@@ -1,9 +1,6 @@
 package main.java.IOStreams;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 /*
@@ -11,6 +8,12 @@ import java.util.Scanner;
  * */
 public class ScanningTokenizedText {
 	public static void main(String[] args) {
+		try {
+			scanLineByLine();
+		} catch (IOException e) {
+			System.out.println("Caught IOException: " + e.getMessage());
+		}
+
 		try {
 			scanTheCharacterSeparatedBySpace();
 		} catch (IOException e) {
@@ -21,6 +24,14 @@ public class ScanningTokenizedText {
 			scanTheCharacterSeparatedByComma();
 		} catch (IOException e) {
 			System.out.println("Caught IOException: " + e.getMessage());
+		}
+	}
+
+	public static void scanLineByLine() throws IOException {
+		Scanner s = new Scanner(new File("/Users/yizhao/Desktop/zenefitTest1.txt"));
+		while(s.hasNextLine()){
+			String firstLine = s.nextLine();
+			System.out.println(firstLine);
 		}
 	}
 
