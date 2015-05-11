@@ -6,7 +6,7 @@ package main.java;
  * Create a normal Java class, this is the class you want to schedule in Quartz.
  */
 public class RunMeTask {
-    public void printMe() {
-        System.out.println("Spring 3 + Quartz 1.8.6 ~");
+    public void printMe(String srcPath) {
+        System.out.println("srcPath:" + srcPath);
     }
 }

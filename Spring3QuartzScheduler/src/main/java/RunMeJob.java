@@ -14,15 +14,20 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
  */
 public class RunMeJob extends QuartzJobBean {
     private RunMeTask runMeTask;
+    private String srcPath;
 
     public void setRunMeTask(RunMeTask runMeTask) {
         this.runMeTask = runMeTask;
     }
 
+    public void setSrcPath(String srcPath) {
+        this.srcPath = srcPath;
+    }
+
     protected void executeInternal(JobExecutionContext context)
             throws JobExecutionException {
 
-        runMeTask.printMe();
+        runMeTask.printMe(srcPath);
 
     }
 }
