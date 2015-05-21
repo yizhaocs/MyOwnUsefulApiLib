@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Spring3QuatzSchedulerExample</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>Spring3QuartzSchedulerOfMethodInvokingJobDetailFactoryBean</artifactId>
 
     <dependencies>
 

@@ -1,0 +1,88 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+    <bean id="srcPathFriendsProperty" class="java.lang.String">
+        <constructor-arg value="zhaoyi is a genuis!!"/>
+    </bean>
+
+
+    <bean id="runMeTask" class="main.java.RunMeTask"/>
+
+    <!-- Spring Quartz -->
+    <!--<bean name="runMeJob" class="org.springframework.scheduling.quartz.JobDetailBean">-->
+
+    <!--<property name="jobClass" value="main.java.RunMeJob"/>-->
+
+    <!--<property name="jobDataAsMap">-->
+    <!--<map>-->
+    <!--<entry key="runMeTask" value-ref="runMeTask"/>-->
+    <!--<entry key="srcPath" value-ref="srcPathFriendsProperty"/>-->
+    <!--</map>-->
+    <!--</property>-->
+
+    <!--</bean>-->
+
+    <bean id="runMeJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="runMeTask"/>
+        <property name="targetMethod"
+                  value="printMe"/>
+        <property name="arguments">
+            <list>
+                <ref bean="test1"/>
+                <ref bean="test2"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- repeated timer Trigger, run every 5 seconds -->
+    <!--It allows to set the start time, end time, repeat interval to run your job.-->
+    <bean id="repeatedTimerTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+
+        <property name="jobDetail" ref="runMeJob"/>
+        <property name="repeatInterval" value="5000"/>
+        <property name="startDelay" value="1000"/>
+
+    </bean>
+
+    <!-- fixed Timer Cron Trigger, run every day at 14:13 -->
+    <!--It allows Unix cron expression to specify the dates and times to run your job.-->
+    <!--
+        Note:
+             The Unix cron expression is highly flexible and powerful, read more in following websites :
+             http://en.wikipedia.org/wiki/Cron#CRON_expression
+             http://www.quartz-scheduler.org/docs/examples/Example3.html
+             -->
+    <bean id="fixedTimerCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+
+        <property name="jobDetail" ref="runMeJob"/>
+        <property name="cronExpression" value="0 40 10 1/1 * ?"/>
+
+    </bean>
+
+    <!--Create a Scheduler factory bean to integrate both job detail and trigger together.-->
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="jobDetails">
+            <list>
+                <ref bean="runMeJob"/>
+            </list>
+        </property>
+
+        <property name="triggers">
+            <list>
+                <ref bean="fixedTimerCronTrigger"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="test1" class="java.lang.String">
+        <constructor-arg value="123"/>
+    </bean>
+
+    <bean id="test2" class="java.lang.String">
+        <constructor-arg value="456"/>
+    </bean>
+
+</beans>

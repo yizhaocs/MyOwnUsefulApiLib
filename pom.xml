@@ -8,7 +8,7 @@
     <modules>
         <module>HadoopApis</module>
         <module>GeneralApis</module>
-        <module>Spring3QuartzScheduler</module>
+        <module>Spring3QuartzSchedulerOfJobDetailBean</module>
 		<module>SpringSetterInjection</module>
 		<module>SpringReadProperties</module>
 		<module>JsonOfJackson</module>
@@ -16,6 +16,7 @@
 		<module>SpringLazyInit</module>
 		<module>FuhuSocial</module>
 		<module>SL4Jdemo</module>
+		<module>Spring3QuartzSchedulerOfMethodInvokingJobDetailFactoryBean</module>
 	</modules>
 
     <properties>
