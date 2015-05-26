@@ -17,6 +17,7 @@
 		<module>FuhuSocial</module>
 		<module>SL4Jdemo</module>
 		<module>Spring3QuartzSchedulerOfMethodInvokingJobDetailFactoryBean</module>
+		<module>SpringDTO</module>
 	</modules>
 
     <properties>
