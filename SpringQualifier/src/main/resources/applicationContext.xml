@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+    http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util-3.2.xsd"
+       default-lazy-init="true">
+
+    <context:annotation-config />
+
+
+    <!--<context:property-placeholder location="file:${FUHU_HOME}/fuhu.properties"/>-->
+    <bean
+            class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+            scope="singleton" lazy-init="false" p:placeholderPrefix="$test:{"
+            p:order="100" p:systemPropertiesModeName="SYSTEM_PROPERTIES_MODE_OVERRIDE"
+            p:location="file:/Users/yizhao/Documents/IntellijWorkspace/MyOwnUsefulApiLib/SpringQualifier/src/main/resources/fuhu.properties">
+    </bean>
+
+    <bean id="DTO" class="main.java.DTO">
+    </bean>
+
+    <!-- For project names  -->
+    <bean id="chatProjectName" class="java.lang.String">
+        <qualifier value="projectName" />
+        <constructor-arg value="$test:{fuhu.chat.projectName}"/>
+    </bean>
+
+    <!-- For input paths  -->
+    <bean id="inputPathChatProperty" class="java.lang.String">
+        <qualifier value="inputPath" />
+        <constructor-arg value="$test:{fuhu.chat.inputPath}"/>
+    </bean>
+
+    <!-- For working paths  -->
+    <bean id="workingPathChatProperty" class="java.lang.String">
+        <qualifier value="workingPath" />
+        <constructor-arg value="$test:{fuhu.chat.workingPath}"/>
+    </bean>
+
+    <!-- For output paths  -->
+    <bean id="outputPathChatProperty" class="java.lang.String">
+        <qualifier value="outputPath" />
+        <constructor-arg value="$test:{fuhu.chat.outputPath}"/>
+    </bean>
+
+    <!-- For archived paths  -->
+    <bean id="archivedPathChatProperty" class="java.lang.String">
+        <qualifier value="archivedPath" />
+        <constructor-arg value="$test:{fuhu.chat.archivedPath}"/>
+    </bean>
+
+    <!-- For hadoop proerties  -->
+    <bean id="hadoopFS" class="java.lang.String">
+        <qualifier value="hadoopFS" />
+        <constructor-arg value="$test:{fuhu.hadoopFS}"/>
+    </bean>
+
+    <bean id="defaultFS" class="java.lang.String">
+        <qualifier value="defaultFS" />
+        <constructor-arg value="$test:{fuhu.defaultFS}"/>
+    </bean>
+
+    <!--For testing sequence files  -->
+    <bean id="testSequenceFile1" class="java.lang.String">
+        <qualifier value="testSequenceFile1" />
+        <constructor-arg value="$test:{fuhu.chat.testSequenceFile1}"/>
+    </bean>
+
+    <bean id="testSequenceFile2" class="java.lang.String">
+        <qualifier value="testSequenceFile2" />
+        <constructor-arg value="$test:{fuhu.chat.testSequenceFile2}"/>
+    </bean>
+
+    <!--For testing-->
+    <bean id="test" class="java.lang.Boolean">
+        <qualifier value="test" />
+        <constructor-arg value="$test:{fuhu.test}"/>
+    </bean>
+</beans>

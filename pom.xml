@@ -18,6 +18,7 @@
 		<module>SL4Jdemo</module>
 		<module>Spring3QuartzSchedulerOfMethodInvokingJobDetailFactoryBean</module>
 		<module>SpringDTO</module>
+		<module>SpringQualifier</module>
 	</modules>
 
     <properties>
