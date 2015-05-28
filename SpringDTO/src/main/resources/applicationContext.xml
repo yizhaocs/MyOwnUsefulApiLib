@@ -11,132 +11,60 @@
 
     <context:annotation-config />
 
-
-    <bean
-            class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-            scope="singleton" lazy-init="false" p:placeholderPrefix="$fuhu:{"
-            p:order="100" p:systemPropertiesModeName="SYSTEM_PROPERTIES_MODE_OVERRIDE"
-            p:location="file:/Users/yizhao/Documents/IntellijWorkspace/MyOwnUsefulApiLib/SpringDTO/src/main/resources/fuhu.properties">
-    </bean>
-
     <!-- For TemporaryFileDTO -->
     <bean id="chatJob" class="main.java.dto.TemporaryFileDTO">
         <property name="projectName" ref="chatProjectName" />
         <property name="inputPath" ref="inputPathChatProperty" />
-        <property name="workingPath" ref="workingPathChatProperty" />
-        <property name="outputPath" ref="outputPathChatProperty" />
-        <property name="archivedPath" ref="archivedPathChatProperty" />
+
     </bean>
 
     <bean id="friendsJob" class="main.java.dto.TemporaryFileDTO">
         <property name="projectName" ref="friendsProjectName" />
         <property name="inputPath" ref="inputPathFriendsProperty" />
-        <property name="workingPath" ref="workingPathFriendsProperty" />
-        <property name="outputPath" ref="outputPathFriendsProperty" />
-        <property name="archivedPath" ref="archivedPathFriendsProperty" />
     </bean>
 
     <bean id="photosJob" class="main.java.dto.TemporaryFileDTO">
         <property name="projectName" ref="photosProjectName" />
         <property name="inputPath" ref="inputPathPhotosProperty" />
-        <property name="workingPath" ref="workingPathPhotosProperty" />
-        <property name="outputPath" ref="outputPathPhotosProperty" />
-        <property name="archivedPath" ref="archivedPathPhotosProperty" />
     </bean>
 
     <bean id="emailsJob" class="main.java.dto.TemporaryFileDTO">
         <property name="projectName" ref="emailsProjectName" />
         <property name="inputPath" ref="inputPathEmailsProperty" />
-        <property name="workingPath" ref="workingPathEmailsProperty" />
-        <property name="outputPath" ref="outputPathEmailsProperty" />
-        <property name="archivedPath" ref="archivedPathEmailsProperty" />
     </bean>
 
     <!-- For project names  -->
     <bean id="chatProjectName" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.chat.projectName}"/>
+        <constructor-arg value="Chat"/>
     </bean>
 
 
     <bean id="friendsProjectName" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.friends.projectName}"/>
+        <constructor-arg value="Friends"/>
     </bean>
 
     <bean id="emailsProjectName" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.emails.projectName}"/>
+        <constructor-arg value="Emails"/>
     </bean>
 
     <bean id="photosProjectName" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.photos.projectName}"/>
+        <constructor-arg value="Photos"/>
     </bean>
 
     <!-- For input paths  -->
     <bean id="inputPathChatProperty" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.chat.inputPath}"/>
+        <constructor-arg value="/kafka/logging_consumer/chat/new/"/>
     </bean>
 
     <bean id="inputPathEmailsProperty" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.emails.inputPath}"/>
+        <constructor-arg value="/kafka/logging_consumer/emails/new/"/>
     </bean>
 
     <bean id="inputPathFriendsProperty" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.friends.inputPath}"/>
+        <constructor-arg value="/kafka/logging_consumer/friends/new/"/>
     </bean>
 
     <bean id="inputPathPhotosProperty" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.photos.inputPath}"/>
-    </bean>
-
-    <!-- For working paths  -->
-    <bean id="workingPathChatProperty" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.chat.workingPath}"/>
-    </bean>
-
-    <bean id="workingPathEmailsProperty" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.emails.workingPath}"/>
-    </bean>
-
-    <bean id="workingPathFriendsProperty" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.friends.workingPath}"/>
-    </bean>
-
-    <bean id="workingPathPhotosProperty" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.photos.workingPath}"/>
-    </bean>
-
-    <!-- For output paths  -->
-    <bean id="outputPathChatProperty" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.chat.outputPath}"/>
-    </bean>
-
-
-    <bean id="outputPathEmailsProperty" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.emails.outputPath}"/>
-    </bean>
-
-    <bean id="outputPathFriendsProperty" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.friends.outputPath}"/>
-    </bean>
-
-    <bean id="outputPathPhotosProperty" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.photos.outputPath}"/>
-    </bean>
-
-    <!-- For archived paths  -->
-    <bean id="archivedPathChatProperty" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.chat.archivedPath}"/>
-    </bean>
-
-
-    <bean id="archivedPathEmailsProperty" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.emails.archivedPath}"/>
-    </bean>
-
-    <bean id="archivedPathFriendsProperty" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.friends.archivedPath}"/>
-    </bean>
-
-    <bean id="archivedPathPhotosProperty" class="java.lang.String">
-        <constructor-arg value="$fuhu:{fuhu.photos.archivedPath}"/>
+        <constructor-arg value="/kafka/logging_consumer/photos/new/"/>
     </bean>
 </beans>
