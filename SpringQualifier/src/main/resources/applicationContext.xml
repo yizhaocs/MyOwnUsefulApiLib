@@ -11,73 +11,64 @@
 
     <context:annotation-config />
 
-
-    <!--<context:property-placeholder location="file:${FUHU_HOME}/fuhu.properties"/>-->
-    <bean
-            class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-            scope="singleton" lazy-init="false" p:placeholderPrefix="$test:{"
-            p:order="100" p:systemPropertiesModeName="SYSTEM_PROPERTIES_MODE_OVERRIDE"
-            p:location="file:/Users/yizhao/Documents/IntellijWorkspace/MyOwnUsefulApiLib/SpringQualifier/src/main/resources/fuhu.properties">
-    </bean>
-
     <bean id="DTO" class="main.java.DTO">
     </bean>
 
     <!-- For project names  -->
     <bean id="chatProjectName" class="java.lang.String">
         <qualifier value="projectName" />
-        <constructor-arg value="$test:{fuhu.chat.projectName}"/>
+        <constructor-arg value="chat"/>
     </bean>
 
     <!-- For input paths  -->
     <bean id="inputPathChatProperty" class="java.lang.String">
         <qualifier value="inputPath" />
-        <constructor-arg value="$test:{fuhu.chat.inputPath}"/>
+        <constructor-arg value="/testing/logging_consumer/chat/new/"/>
     </bean>
 
     <!-- For working paths  -->
     <bean id="workingPathChatProperty" class="java.lang.String">
         <qualifier value="workingPath" />
-        <constructor-arg value="$test:{fuhu.chat.workingPath}"/>
+        <constructor-arg value="/testing/logging_consumer/chat/working/"/>
     </bean>
 
     <!-- For output paths  -->
     <bean id="outputPathChatProperty" class="java.lang.String">
         <qualifier value="outputPath" />
-        <constructor-arg value="$test:{fuhu.chat.outputPath}"/>
+        <constructor-arg value="/testing/logging_consumer/chat/aggregate/"/>
     </bean>
 
     <!-- For archived paths  -->
     <bean id="archivedPathChatProperty" class="java.lang.String">
         <qualifier value="archivedPath" />
-        <constructor-arg value="$test:{fuhu.chat.archivedPath}"/>
+        <constructor-arg value="/testing/logging_consumer/chat/archived/"/>
     </bean>
 
     <!-- For hadoop proerties  -->
     <bean id="hadoopFS" class="java.lang.String">
         <qualifier value="hadoopFS" />
-        <constructor-arg value="$test:{fuhu.hadoopFS}"/>
+        <constructor-arg value="hdfs://localhost:9000/"/>
     </bean>
 
     <bean id="defaultFS" class="java.lang.String">
         <qualifier value="defaultFS" />
-        <constructor-arg value="$test:{fuhu.defaultFS}"/>
+        <constructor-arg value="fs.defaultFS"/>
     </bean>
 
     <!--For testing sequence files  -->
     <bean id="testSequenceFile1" class="java.lang.String">
         <qualifier value="testSequenceFile1" />
-        <constructor-arg value="$test:{fuhu.chat.testSequenceFile1}"/>
+        <constructor-arg value="/Users/yizhao/Documents/FuhuProjects/TransactionLogMerge/src/test/resources/sequenceFileTest1.log"/>
     </bean>
 
     <bean id="testSequenceFile2" class="java.lang.String">
         <qualifier value="testSequenceFile2" />
-        <constructor-arg value="$test:{fuhu.chat.testSequenceFile2}"/>
+        <constructor-arg value="/Users/yizhao/Documents/FuhuProjects/TransactionLogMerge/src/test/resources/sequenceFileTest2.log"/>
     </bean>
 
     <!--For testing-->
     <bean id="test" class="java.lang.Boolean">
         <qualifier value="test" />
-        <constructor-arg value="$test:{fuhu.test}"/>
+        <constructor-arg value="true"/>
     </bean>
 </beans>

@@ -19,6 +19,7 @@
 		<module>Spring3QuartzSchedulerOfMethodInvokingJobDetailFactoryBean</module>
 		<module>SpringDTO</module>
 		<module>SpringQualifier</module>
+		<module>SpringJUnit</module>
 	</modules>
 
     <properties>
