@@ -21,6 +21,7 @@
 		<module>SpringQualifier</module>
 		<module>SpringJUnit</module>
 		<module>ProtocolBuffers</module>
+		<module>SpringComponentAutowired</module>
 	</modules>
 
     <properties>
