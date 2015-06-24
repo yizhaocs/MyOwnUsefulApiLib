@@ -20,6 +20,7 @@
 		<module>SpringDTO</module>
 		<module>SpringQualifier</module>
 		<module>SpringJUnit</module>
+		<module>ProtocolBuffers</module>
 	</modules>
 
     <properties>
