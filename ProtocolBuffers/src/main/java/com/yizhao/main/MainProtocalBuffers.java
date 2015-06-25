@@ -1,4 +1,4 @@
-package main.java;
+package main.java.com.yizhao.main;
 
 
 import static com.yizhao.proto.PersonProto.Person;
