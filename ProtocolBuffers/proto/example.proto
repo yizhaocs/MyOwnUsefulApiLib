@@ -1,0 +1,8 @@
+package com.yizhao.proto;
+
+option java_package = "com.yizhao.proto";
+option java_outer_classname = "PersonProto";
+message Person {
+    optional string firstName = 1;
+    optional string lastName = 2;
+}
