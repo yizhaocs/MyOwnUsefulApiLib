@@ -23,6 +23,7 @@
 		<module>ProtocolBuffers</module>
 		<module>SpringComponentAutowired</module>
 		<module>FlumeCustomInterceptors</module>
+		<module>FlumeCustomInterceptorsWithProtocalBuffer</module>
 	</modules>
 
     <properties>
