@@ -22,6 +22,7 @@
 		<module>SpringJUnit</module>
 		<module>ProtocolBuffers</module>
 		<module>SpringComponentAutowired</module>
+		<module>FlumeCustomInterceptors</module>
 	</modules>
 
     <properties>
