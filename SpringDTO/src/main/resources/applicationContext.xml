@@ -13,58 +13,22 @@
 
     <!-- For TemporaryFileDTO -->
     <bean id="chatJob" class="main.java.dto.TemporaryFileDTO">
-        <property name="projectName" ref="chatProjectName" />
-        <property name="inputPath" ref="inputPathChatProperty" />
-
+        <property name="projectName" value="Chat" />
+        <property name="inputPath" value="/kafka/logging_consumer/chat/new/" />
     </bean>
 
     <bean id="friendsJob" class="main.java.dto.TemporaryFileDTO">
-        <property name="projectName" ref="friendsProjectName" />
-        <property name="inputPath" ref="inputPathFriendsProperty" />
+        <property name="projectName" value="Friends" />
+        <property name="inputPath" value="/kafka/logging_consumer/friends/new/" />
     </bean>
 
     <bean id="photosJob" class="main.java.dto.TemporaryFileDTO">
-        <property name="projectName" ref="photosProjectName" />
-        <property name="inputPath" ref="inputPathPhotosProperty" />
+        <property name="projectName" value="Photos" />
+        <property name="inputPath" value="/kafka/logging_consumer/photos/new/" />
     </bean>
 
     <bean id="emailsJob" class="main.java.dto.TemporaryFileDTO">
-        <property name="projectName" ref="emailsProjectName" />
-        <property name="inputPath" ref="inputPathEmailsProperty" />
-    </bean>
-
-    <!-- For project names  -->
-    <bean id="chatProjectName" class="java.lang.String">
-        <constructor-arg value="Chat"/>
-    </bean>
-
-
-    <bean id="friendsProjectName" class="java.lang.String">
-        <constructor-arg value="Friends"/>
-    </bean>
-
-    <bean id="emailsProjectName" class="java.lang.String">
-        <constructor-arg value="Emails"/>
-    </bean>
-
-    <bean id="photosProjectName" class="java.lang.String">
-        <constructor-arg value="Photos"/>
-    </bean>
-
-    <!-- For input paths  -->
-    <bean id="inputPathChatProperty" class="java.lang.String">
-        <constructor-arg value="/kafka/logging_consumer/chat/new/"/>
-    </bean>
-
-    <bean id="inputPathEmailsProperty" class="java.lang.String">
-        <constructor-arg value="/kafka/logging_consumer/emails/new/"/>
-    </bean>
-
-    <bean id="inputPathFriendsProperty" class="java.lang.String">
-        <constructor-arg value="/kafka/logging_consumer/friends/new/"/>
-    </bean>
-
-    <bean id="inputPathPhotosProperty" class="java.lang.String">
-        <constructor-arg value="/kafka/logging_consumer/photos/new/"/>
+        <property name="projectName" value="Emails" />
+        <property name="inputPath" value="/kafka/logging_consumer/emails/new/" />
     </bean>
 </beans>

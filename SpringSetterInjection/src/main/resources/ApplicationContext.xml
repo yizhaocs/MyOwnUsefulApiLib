@@ -12,12 +12,6 @@
     <context:annotation-config />
 
     <bean id="Properties" class="main.java.Properties">
-        <property name="flag" ref="flagBean" />
+        <property name="flag" value="true"  />
     </bean>
-
-    <bean id="flagBean" class="java.lang.Boolean">
-        <constructor-arg value="true" />
-        <!--<property name="hdfsFlag" ref="$fuhu:{fuhu.hdfsFlag}" />-->
-    </bean>
-
 </beans>
