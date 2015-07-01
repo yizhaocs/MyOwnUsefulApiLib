@@ -20,12 +20,6 @@
     </bean>
 
     <bean id="Properties" class="main.java.Properties">
-        <property name="flag" ref="flagBean" />
+        <property name="flag" value="$fuhu:{Flag}" />
     </bean>
-
-    <bean id="flagBean" class="java.lang.Boolean">
-        <constructor-arg value="$fuhu:{Flag}" />
-        <!--<property name="hdfsFlag" ref="$fuhu:{fuhu.hdfsFlag}" />-->
-    </bean>
-
 </beans>
