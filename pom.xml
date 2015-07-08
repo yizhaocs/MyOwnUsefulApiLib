@@ -19,11 +19,10 @@
 		<module>Spring3QuartzSchedulerOfMethodInvokingJobDetailFactoryBean</module>
 		<module>SpringDTO</module>
 		<module>SpringQualifier</module>
-		<module>SpringJUnit</module>
 		<module>ProtocolBuffers</module>
 		<module>SpringComponentAutowired</module>
 		<module>FlumeCustomInterceptors</module>
-		<module>FlumeCustomInterceptorsWithProtocalBuffer</module>
+		<module>SparkWorldCount</module>
 	</modules>
 
     <properties>

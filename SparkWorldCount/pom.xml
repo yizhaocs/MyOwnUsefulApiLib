@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>MyOwnUsefulApiLib</artifactId>
+        <groupId>MyOwnUsefulApiLib</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>SparkWorldCount</artifactId>
+
+    <!--配置代码库：从akka.releases.repo库可以获取对Spark代码的依赖，从cdh.releases.repo库可以获取对Hadoop代码的依赖，从central库可以获取对其他第三方代码的依赖-->
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>http://repo.maven.apache.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>akka.releases.repo</id>
+            <name>Akka repository</name>
+            <url>http://repo.akka.io/releases</url>
+        </repository>
+        <repository>
+            <id>cdh.releases.repo</id>
+            <url>https://repository.cloudera.com/content/groups/cdh-releases-rcs</url>
+            <name>CDH Releases Repository</name>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <!--配置对第三方代码的依赖：对Spark的依赖和对Hadoop的依赖-->
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.9.3</artifactId>
+            <version>0.8.0-incubating</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+            <version>2.0.0-mr1-cdh4.2.0</version>
+        </dependency>
+    </dependencies>
+
+    <!--配置Java源码基于Java 1.6编译器-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
