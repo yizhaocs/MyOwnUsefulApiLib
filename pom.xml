@@ -23,6 +23,7 @@
 		<module>SpringComponentAutowired</module>
 		<module>FlumeCustomInterceptors</module>
 		<module>SparkWorldCount</module>
+		<module>SparkWorldCount2</module>
 	</modules>
 
     <properties>
