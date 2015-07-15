@@ -10,7 +10,7 @@ import java.util.List;
  * Created by yizhao on 7/15/15.
  */
 public class SparkExampleMain {
-    static final String FILE_PATH = "SparkExample/src/main/resources/test.txt";
+    static final String FILE_PATH = "SparkExample/src/main/resources/";
 
 
     /**
