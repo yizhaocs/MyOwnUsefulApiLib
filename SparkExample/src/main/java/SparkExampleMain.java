@@ -22,12 +22,14 @@ public class SparkExampleMain {
 
         lines.cache();  //cache，暂时放在缓存中，一般用于哪些可能需要多次使用的RDD，据说这样会减少运行时间
 
+        System.out.println("--------------next collect方法's result------------------");
         //collect方法，用于将RDD类型转化为java基本类型，如下
         List<String> line = lines.collect();
         for (String val : line) {
             System.out.println(val);
         }
 
+        System.out.println("--------------next 下面这些也是RDD的常用函数's result------------------");
         System.out.println("lines.top(1):" + lines.top(1)); // lines.top(1):[yi zhao is]
         System.out.println("lines.count():" + lines.count()); // lines.count():9
         System.out.println("lines.countByValue():" + lines.countByValue()); // lines.countByValue():{a=3, yi zhao is=2, hahaha hehe=1, b=2, c=1}
