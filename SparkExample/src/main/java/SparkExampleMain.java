@@ -2,8 +2,10 @@ package main.java;
 
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.api.java.function.FlatMapFunction;
 import org.apache.spark.api.java.function.Function;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -83,9 +85,33 @@ public class SparkExampleMain {
          *
          */
         JavaRDD<String> sampleTestRDD = lines.sample(false, 0.1, 5);
-        System.out.println("-------------next sample-------------------");
+        System.out.println("-------------next sample's result-------------------");
         List<String> sampleTestResult = sampleTestRDD.collect();
         for (String val : sampleTestResult) {
+            System.out.println(val);
+        }
+
+
+
+        /**
+         *
+         * new FlatMapFunction<String, String>两个string分别代表输入和输出类型
+         * Override的call方法需要自己实现一个转换的方法，并返回一个Iterable的结构
+         *
+         * flatmap属于一类非常常用的spark函数，简单的说作用就是将一条rdd数据使用你定义的函数给分解成多条rdd数据
+         * 例如，当前状态下，lines这个rdd类型的变量中，每一条数据都是一行String，我们现在想把他拆分成1个个的词的话，
+         * 可以这样写 ：
+         */
+        JavaRDD<String> flatMapRDD = lines.flatMap(new FlatMapFunction<String, String>() {
+            @Override
+            public Iterable<String> call(String s) {
+                String[] words = s.split(" ");
+                return Arrays.asList(words);
+            }
+        });
+        System.out.println("-------------next FlatMap's result-------------------");
+        List<String> flatMapResult = flatMapRDD.collect();
+        for (String val : flatMapResult) {
             System.out.println(val);
         }
     }
