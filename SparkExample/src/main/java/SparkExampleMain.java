@@ -48,12 +48,27 @@ public class SparkExampleMain {
         JavaRDD<String> contaninsE = lines.filter(new Function<String, Boolean>() {
             @Override
             public Boolean call(String s) throws Exception {
-                return (s.contains("a"));
+                /*
+                    a
+                    b
+                    c
+                    yi zhao is
+                    hahaha hehe
+                    a
+                    yi zhao is
+                    a
+                    b
+                */
+                return s.contains("zhao");
             }
         });
 
         List<String> filterResult = contaninsE.collect();
-        for (String val : line) {
+        for (String val : filterResult) {
+            /*
+                yi zhao is
+                yi zhao is
+            */
             System.out.println(val);
         }
 
