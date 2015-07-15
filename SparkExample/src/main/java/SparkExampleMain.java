@@ -27,6 +27,17 @@ public class SparkExampleMain {
         //collect方法，用于将RDD类型转化为java基本类型，如下
         List<String> line = lines.collect();
         for (String val : line) {
+           /*
+                a
+                b
+                c
+                yi zhao is
+                hahaha hehe
+                a
+                yi zhao is
+                a
+                b
+            */
             System.out.println(val);
         }
 
@@ -51,17 +62,6 @@ public class SparkExampleMain {
         JavaRDD<String> filterRDD = lines.filter(new Function<String, Boolean>() {
             @Override
             public Boolean call(String s) throws Exception {
-                /*
-                    a
-                    b
-                    c
-                    yi zhao is
-                    hahaha hehe
-                    a
-                    yi zhao is
-                    a
-                    b
-                */
                 return s.contains("zhao");
             }
         });
