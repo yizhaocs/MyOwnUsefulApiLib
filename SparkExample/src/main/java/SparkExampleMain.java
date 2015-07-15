@@ -14,7 +14,6 @@ import java.util.List;
 public class SparkExampleMain {
     static final String FILE_PATH = "SparkExample/src/main/resources/";
 
-
     /**
      * 跑之前要在configuration中设置VM option：-Dorg.xerial.snappy.lib.name=libsnappyjava.jnilib -Dorg.xerial.snappy.tempdir=/tmp
      **/
@@ -135,9 +134,8 @@ public class SparkExampleMain {
 //         * pairFunction<T,K,V>: T:输入类型；K,V：输出键值对
 //         * 需要重写call方法实现转换
 //         */
-//        JavaPairRDD<String, Integer> ones = flatMapRDD.map(new PairFunction<String, String, Integer>() {
-//            @Override
-//            public Tuple2<String, Integer> call(String s) {
+//        JavaPairRDD<String, Integer> ones = flatMapRDD.map(new Function2<String, String, Integer>() {
+//            public Tuple2<String, Integer> call(String s,) {
 //                return new Tuple2<String, Integer>(s, 1);
 //            }
 //        });
