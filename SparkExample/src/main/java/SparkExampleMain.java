@@ -77,7 +77,6 @@ public class SparkExampleMain {
         }
 
 
-
         /**
          * sample test
          * sample函数使用很简单，用于对数据进行抽样
@@ -90,7 +89,6 @@ public class SparkExampleMain {
         for (String val : sampleTestResult) {
             System.out.println(val);
         }
-
 
 
         /**
@@ -112,7 +110,36 @@ public class SparkExampleMain {
         System.out.println("-------------next FlatMap's result-------------------");
         List<String> flatMapResult = flatMapRDD.collect();
         for (String val : flatMapResult) {
+            /*
+                a
+                b
+                c
+                yi
+                zhao
+                is
+                hahaha
+                hehe
+                a
+                yi
+                zhao
+                is
+                a
+                b
+            */
             System.out.println(val);
         }
+
+
+//        /**
+//         * map 键值对 ，类似于MR的map方法
+//         * pairFunction<T,K,V>: T:输入类型；K,V：输出键值对
+//         * 需要重写call方法实现转换
+//         */
+//        JavaPairRDD<String, Integer> ones = flatMapRDD.map(new PairFunction<String, String, Integer>() {
+//            @Override
+//            public Tuple2<String, Integer> call(String s) {
+//                return new Tuple2<String, Integer>(s, 1);
+//            }
+//        });
     }
 }
