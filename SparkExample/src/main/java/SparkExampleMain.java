@@ -45,7 +45,7 @@ public class SparkExampleMain {
          *  定义一个返回bool类型的函数，spark运行filter的时候会过滤掉那些返回只为false的数据
          *  String s，中的变量s可以认为就是变量lines（lines可以理解为一系列的String类型数据）的每一条数据
          */
-        JavaRDD<String> contaninsE = lines.filter(new Function<String, Boolean>() {
+        JavaRDD<String> filterRDD = lines.filter(new Function<String, Boolean>() {
             @Override
             public Boolean call(String s) throws Exception {
                 /*
@@ -62,8 +62,8 @@ public class SparkExampleMain {
                 return s.contains("zhao");
             }
         });
-
-        List<String> filterResult = contaninsE.collect();
+        System.out.println("--------------next filter's result------------------");
+        List<String> filterResult = filterRDD.collect();
         for (String val : filterResult) {
             /*
                 yi zhao is
@@ -72,5 +72,19 @@ public class SparkExampleMain {
             System.out.println(val);
         }
 
+
+
+        /**
+         * sample test
+         * sample函数使用很简单，用于对数据进行抽样
+         * 参数为：withReplacement: Boolean, fraction: Double, seed: Int
+         *
+         */
+        JavaRDD<String> sampleTestRDD = lines.sample(false, 0.1, 5);
+        System.out.println("-------------next sample-------------------");
+        List<String> sampleTestResult = sampleTestRDD.collect();
+        for (String val : sampleTestResult) {
+            System.out.println(val);
+        }
     }
 }
