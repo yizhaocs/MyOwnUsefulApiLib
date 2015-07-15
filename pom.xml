@@ -24,6 +24,7 @@
 		<module>FlumeCustomInterceptors</module>
 		<module>SparkWorldCount</module>
 		<module>SparkWorldCount2</module>
+		<module>SparkExample</module>
 	</modules>
 
     <properties>
