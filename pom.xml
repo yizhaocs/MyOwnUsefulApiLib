@@ -25,6 +25,7 @@
 		<module>SparkWorldCount</module>
 		<module>SparkWorldCount2</module>
 		<module>SparkExample</module>
+		<module>SparkLoadSequenceFile</module>
 	</modules>
 
     <properties>
