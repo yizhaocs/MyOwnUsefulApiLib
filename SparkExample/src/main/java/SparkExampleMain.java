@@ -138,12 +138,35 @@ public class SparkExampleMain {
          * pairFunction<T,K,V>: T:输入类型；K,V：输出键值对
          * 需要重写call方法实现转换
          */
-        JavaPairRDD<String, Integer> ones = flatMapRDD.mapToPair(new PairFunction<String, String, Integer>() {
+        JavaPairRDD<String, Integer> mapOperation = flatMapRDD.mapToPair(new PairFunction<String, String, Integer>() {
             @Override
             public Tuple2<String, Integer> call(String s1) {
                 return new Tuple2<String, Integer>(s1, 1);
             }
         });
+
+
+        System.out.println("-------------next mapOperation's result-------------------");
+        List<Tuple2<String, Integer>> mapOperationResult = mapOperation.collect();
+        for (Tuple2<String, Integer> val : mapOperationResult) {
+            /*
+                (a,1)
+                (b,1)
+                (c,1)
+                (yi,1)
+                (zhao,1)
+                (is,1)
+                (hahaha,1)
+                (hehe,1)
+                (a,1)
+                (yi,1)
+                (zhao,1)
+                (is,1)
+                (a,1)
+                (b,1)
+            */
+            System.out.println(val);
+        }
 
 
 
@@ -153,12 +176,35 @@ public class SparkExampleMain {
          *  reduceByKey方法，类似于MR的reduce
          *  要求被操作的数据（即下面实例中的ones）是KV键值对形式，该方法会按照key相同的进行聚合，在两两运算
          */
-        JavaPairRDD<String, Integer> counts = ones.reduceByKey(new Function2<Integer, Integer, Integer>() {
+        JavaPairRDD<String, Integer> reduceOperation = mapOperation.reduceByKey(new Function2<Integer, Integer, Integer>() {
             @Override
             public Integer call(Integer i1, Integer i2) {  //reduce阶段，key相同的value怎么处理的问题
                 return i1 + i2;
             }
         });
+
+
+        System.out.println("-------------next reduceOperation's result-------------------");
+        List<Tuple2<String, Integer>> reduceOperationResult = reduceOperation.collect();
+        for (Tuple2<String, Integer> val : mapOperationResult) {
+            /*
+                (a,1)
+                (b,1)
+                (c,1)
+                (yi,1)
+                (zhao,1)
+                (is,1)
+                (hahaha,1)
+                (hehe,1)
+                (a,1)
+                (yi,1)
+                (zhao,1)
+                (is,1)
+                (a,1)
+                (b,1)
+            */
+            System.out.println(val);
+        }
 
 
         //备注：spark也有reduce方法，输入数据是RDD类型就可以，不需要键值对，
@@ -168,8 +214,8 @@ public class SparkExampleMain {
         /**
          * sort，顾名思义，排序
          */
-        JavaPairRDD<String,Integer> sort = counts.sortByKey();
-        System.out.println("----------next sort----------------------");
+        JavaPairRDD<String,Integer> sortOperation = reduceOperation.sortByKey();
+
 
 
 
@@ -177,8 +223,9 @@ public class SparkExampleMain {
         /**
          * collect方法其实之前已经出现了多次，该方法用于将spark的RDD类型转化为我们熟知的java常见类型
          */
-        List<Tuple2<String, Integer>> output = sort.collect();
-        for (Tuple2<?,?> tuple : output) {
+        System.out.println("-------------next sortOperation's result-------------------");
+        List<Tuple2<String, Integer>> sortResult = sortOperation.collect();
+        for (Tuple2<?,?> tuple : sortResult) {
             /*
                 a: 3
                 b: 2
