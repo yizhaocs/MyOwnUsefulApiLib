@@ -186,22 +186,16 @@ public class SparkExampleMain {
 
         System.out.println("-------------next reduceOperation's result-------------------");
         List<Tuple2<String, Integer>> reduceOperationResult = reduceOperation.collect();
-        for (Tuple2<String, Integer> val : mapOperationResult) {
+        for (Tuple2<String, Integer> val : reduceOperationResult) {
             /*
-                (a,1)
-                (b,1)
-                (c,1)
-                (yi,1)
-                (zhao,1)
-                (is,1)
-                (hahaha,1)
+                (is,2)
                 (hehe,1)
-                (a,1)
-                (yi,1)
-                (zhao,1)
-                (is,1)
-                (a,1)
-                (b,1)
+                (a,3)
+                (b,2)
+                (zhao,2)
+                (hahaha,1)
+                (yi,2)
+                (c,1)
             */
             System.out.println(val);
         }
