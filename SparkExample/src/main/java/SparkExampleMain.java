@@ -1,15 +1,19 @@
 package main.java;
 
+import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.FlatMapFunction;
 import org.apache.spark.api.java.function.Function;
+import org.apache.spark.api.java.function.Function2;
+import org.apache.spark.api.java.function.PairFunction;
+import scala.Tuple2;
 
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by yizhao on 7/15/15.
+ * Reference: http://blog.csdn.net/teddeyang/article/details/23192733
  */
 public class SparkExampleMain {
     static final String FILE_PATH = "SparkExample/src/main/resources/";
@@ -129,15 +133,63 @@ public class SparkExampleMain {
         }
 
 
-//        /**
-//         * map 键值对 ，类似于MR的map方法
-//         * pairFunction<T,K,V>: T:输入类型；K,V：输出键值对
-//         * 需要重写call方法实现转换
-//         */
-//        JavaPairRDD<String, Integer> ones = flatMapRDD.map(new Function2<String, String, Integer>() {
-//            public Tuple2<String, Integer> call(String s,) {
-//                return new Tuple2<String, Integer>(s, 1);
-//            }
-//        });
+        /**
+         * map 键值对 ，类似于MR的map方法
+         * pairFunction<T,K,V>: T:输入类型；K,V：输出键值对
+         * 需要重写call方法实现转换
+         */
+        JavaPairRDD<String, Integer> ones = flatMapRDD.mapToPair(new PairFunction<String, String, Integer>() {
+            @Override
+            public Tuple2<String, Integer> call(String s1) {
+                return new Tuple2<String, Integer>(s1, 1);
+            }
+        });
+
+
+
+        //A two-argument function that takes arguments
+        // of type T1 and T2 and returns an R.
+        /**
+         *  reduceByKey方法，类似于MR的reduce
+         *  要求被操作的数据（即下面实例中的ones）是KV键值对形式，该方法会按照key相同的进行聚合，在两两运算
+         */
+        JavaPairRDD<String, Integer> counts = ones.reduceByKey(new Function2<Integer, Integer, Integer>() {
+            @Override
+            public Integer call(Integer i1, Integer i2) {  //reduce阶段，key相同的value怎么处理的问题
+                return i1 + i2;
+            }
+        });
+
+
+        //备注：spark也有reduce方法，输入数据是RDD类型就可以，不需要键值对，
+        // reduce方法会对输入进来的所有数据进行两两运算
+
+
+        /**
+         * sort，顾名思义，排序
+         */
+        JavaPairRDD<String,Integer> sort = counts.sortByKey();
+        System.out.println("----------next sort----------------------");
+
+
+
+
+        /**
+         * collect方法其实之前已经出现了多次，该方法用于将spark的RDD类型转化为我们熟知的java常见类型
+         */
+        List<Tuple2<String, Integer>> output = sort.collect();
+        for (Tuple2<?,?> tuple : output) {
+            /*
+                a: 3
+                b: 2
+                c: 1
+                hahaha: 1
+                hehe: 1
+                is: 2
+                yi: 2
+                zhao: 2
+            */
+            System.out.println(tuple._1() + ": " + tuple._2());
+        }
     }
 }
