@@ -45,22 +45,22 @@ public class JDBCMain {
         Statement statement = null;
         try {
             statement = connection.createStatement();
-            String sql = "SELECT id, first, last, age FROM Employees";
+            String sql = "SELECT isbn, title, publisher, year FROM Book";
             ResultSet result = statement.executeQuery(sql);
 
             //STEP 5: Extract data from result set
             while (result.next()) {
                 //Retrieve by column name
-                int id = result.getInt("id");
-                int age = result.getInt("age");
-                String first = result.getString("first");
-                String last = result.getString("last");
+                int isbn = result.getInt("isbn");
+                String title = result.getString("title");
+                String publisher = result.getString("publisher");
+                int year = result.getInt("year");
 
                 //Display values
-                System.out.print("ID: " + id);
-                System.out.print(", Age: " + age);
-                System.out.print(", First: " + first);
-                System.out.println(", Last: " + last);
+                System.out.print("isbn: " + isbn);
+                System.out.print(", title: " + title);
+                System.out.print(", publisher: " + publisher);
+                System.out.println(", year: " + year);
             }
             //STEP 6: Clean-up environment
             result.close();
