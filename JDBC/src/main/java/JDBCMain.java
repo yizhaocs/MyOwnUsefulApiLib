@@ -11,8 +11,8 @@ public class JDBCMain {
     static final String DB_URL = "jdbc:mysql://localhost/ThreatStream";
 
     //  Database credentials
-    static final String USER = "";
-    static final String PASS = "";
+    static final String USER = "root";
+    static final String PASS = "123456";
 
     public static void main(String[] args) {
         Connection connection = null;
