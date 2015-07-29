@@ -26,6 +26,7 @@
 		<module>SparkWorldCount2</module>
 		<module>SparkExample</module>
 		<module>SparkLoadSequenceFile</module>
+		<module>JDBC</module>
 	</modules>
 
     <properties>
