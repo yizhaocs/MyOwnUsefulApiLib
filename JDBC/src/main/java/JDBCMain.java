@@ -153,6 +153,10 @@ public class JDBCMain {
         ResultSet queryResult = null;
         try {
             statement = connection.createStatement();
+
+            /*
+            * define a mysql query, which can do the inner job and Author names should follow the order specified in the Author.rank field.
+            * */
             String sql = "SELECT Book.isbn, Book.title, Book.publisher, Book.year, AUTHOR.name FROM Book JOIN AUTHOR ON Book.isbn = AUTHOR.isbn ORDER BY AUTHOR.rank";
             queryResult = statement.executeQuery(sql);
 
