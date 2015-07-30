@@ -162,9 +162,10 @@ public class JDBCMain {
 
 
             /*
-            * define a hashmap to map from title to [title, authors, publisher, year]
+            * define a treemap for mapping from title to [title, authors, publisher, year]
+            * I use treemap instead of a hashmap is because to display the entire catalog, in book title order
             * */
-            Map<String, ResultDTO> finalResult = new HashMap<>();
+            Map<String, ResultDTO> finalResult = new TreeMap<>();
 
             /*
             * define a loop to extra the data from queryResult
