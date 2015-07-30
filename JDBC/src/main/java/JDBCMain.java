@@ -150,16 +150,22 @@ public class JDBCMain {
             return;
         }
         Statement statement = null;
+        ResultSet queryResult = null;
         try {
             statement = connection.createStatement();
             String sql = "SELECT Book.isbn, Book.title, Book.publisher, Book.year, AUTHOR.name FROM Book JOIN AUTHOR ON Book.isbn = AUTHOR.isbn ORDER BY AUTHOR.rank";
-            ResultSet queryResult = statement.executeQuery(sql);
+            queryResult = statement.executeQuery(sql);
 
 
+            /*
+            * define a hashmap to map from title to [title, authors, publisher, year]
+            * */
             Map<String, ResultDTO> finalResult = new HashMap<>();
-            //STEP 5: Extract data from result set
+
+            /*
+            * define a loop to extra the data from queryResult
+            * */
             while (queryResult.next()) {
-                //Retrieve by column name
                 String title = queryResult.getString("title");
                 String publisher = queryResult.getString("publisher");
                 int year = queryResult.getInt("year");
@@ -181,6 +187,9 @@ public class JDBCMain {
                 }
             }
 
+            /*
+            * print out the result to display the entire catalog, in book title order
+            * */
             Set<String> titleSet = finalResult.keySet();
             for (String title : titleSet) {
                 System.out.println("title: " + finalResult.get(title).getTitle());
@@ -190,29 +199,26 @@ public class JDBCMain {
                 System.out.println("publisher: " + finalResult.get(title).getPublisher() + "  , year:" + finalResult.get(title).getYear());
                 System.out.println();
             }
-            //STEP 6: Clean-up environment
-            queryResult.close();
-            statement.close();
-            connection.close();
         } catch (SQLException se) {
-            //Handle errors for JDBC
             se.printStackTrace();
         } catch (Exception e) {
-            //Handle errors for Class.forName
             e.printStackTrace();
         } finally {
-            //finally block used to close resources
+            /*
+            * clean up all resources
+            * */
             try {
-                if (statement != null)
+                if(queryResult != null){
+                    queryResult.close();
+                }
+                if (statement != null) {
                     statement.close();
-            } catch (SQLException se2) {
-            }// nothing we can do
-            try {
+                }
                 if (connection != null) {
                     connection.close();
                 }
-            } catch (SQLException se) {
-                se.printStackTrace();
+            } catch (SQLException se2) {
+                se2.printStackTrace();
             }
         }
     }
