@@ -1,6 +1,7 @@
 package main.java;
 
 import java.sql.*;
+import java.util.*;
 
 /**
  * Created by yizhao on 7/29/15.
@@ -152,26 +153,45 @@ public class JDBCMain {
         try {
             statement = connection.createStatement();
             String sql = "SELECT Book.isbn, Book.title, Book.publisher, Book.year, AUTHOR.name FROM Book JOIN AUTHOR ON Book.isbn = AUTHOR.isbn ORDER BY AUTHOR.rank";
-            ResultSet result = statement.executeQuery(sql);
+            ResultSet queryResult = statement.executeQuery(sql);
 
+
+            Map<String, ResultDTO> finalResult = new HashMap<>();
             //STEP 5: Extract data from result set
-            while (result.next()) {
+            while (queryResult.next()) {
                 //Retrieve by column name
-                int isbn = result.getInt("isbn");
-                String title = result.getString("title");
-                String publisher = result.getString("publisher");
-                int year = result.getInt("year");
-                String name = result.getString("name");
+                String title = queryResult.getString("title");
+                String publisher = queryResult.getString("publisher");
+                int year = queryResult.getInt("year");
+                String name = queryResult.getString("name");
 
-                //Display values
-                System.out.print("isbn: " + isbn);
-                System.out.print(", title: " + title);
-                System.out.print(", publisher: " + publisher);
-                System.out.print(", year: " + year);
-                System.out.println(", name: " + name);
+                ResultDTO curResultDTO;
+                if (finalResult.containsKey(title)) {
+                    curResultDTO = finalResult.get(title);
+                    curResultDTO.getAuthors().add(name);
+                } else {
+                    List<String> authors = new ArrayList<>();
+                    authors.add(name);
+                    curResultDTO = new ResultDTO();
+                    curResultDTO.setTitle(title);
+                    curResultDTO.setAuthors(authors);
+                    curResultDTO.setPublisher(publisher);
+                    curResultDTO.setYear(year);
+                    finalResult.put(title, curResultDTO);
+                }
+            }
+
+            Set<String> titleSet = finalResult.keySet();
+            for (String title : titleSet) {
+                System.out.println("title: " + finalResult.get(title).getTitle());
+                for(String author: finalResult.get(title).getAuthors()){
+                    System.out.println("  author: " + author);
+                }
+                System.out.println("publisher: " + finalResult.get(title).getPublisher() + "  , year:" + finalResult.get(title).getYear());
+                System.out.println();
             }
             //STEP 6: Clean-up environment
-            result.close();
+            queryResult.close();
             statement.close();
             connection.close();
         } catch (SQLException se) {
@@ -196,4 +216,5 @@ public class JDBCMain {
             }
         }
     }
+
 }
