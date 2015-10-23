@@ -6,27 +6,27 @@
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <modules>
-        <module>HadoopApis</module>
+        <module>BigData/Hadoop/HadoopApis</module>
         <module>GeneralApis</module>
-        <module>Spring3QuartzSchedulerOfJobDetailBean</module>
-		<module>SpringSetterInjection</module>
-		<module>SpringReadProperties</module>
-		<module>JsonOfJackson</module>
-		<module>JsonOfGson</module>
-		<module>SpringLazyInit</module>
-		<module>FuhuSocial</module>
-		<module>SL4Jdemo</module>
-		<module>Spring3QuartzSchedulerOfMethodInvokingJobDetailFactoryBean</module>
-		<module>SpringDTO</module>
-		<module>SpringQualifier</module>
-		<module>ProtocolBuffers</module>
-		<module>SpringComponentAutowired</module>
-		<module>FlumeCustomInterceptors</module>
-		<module>SparkWorldCount</module>
-		<module>SparkWorldCount2</module>
-		<module>SparkExample</module>
-		<module>SparkLoadSequenceFile</module>
-		<module>JDBC</module>
+        <module>J2EE/Spring/Spring3QuartzSchedulerOfJobDetailBean</module>
+		<module>J2EE/Spring/SpringSetterInjection</module>
+		<module>J2EE/Spring/SpringReadProperties</module>
+		<module>DataFormat/JsonOfJackson</module>
+		<module>DataFormat/JsonOfGson</module>
+		<module>J2EE/Spring/SpringLazyInit</module>
+		<module>Fuhu/FuhuSocial</module>
+		<module>Log/SL4Jdemo</module>
+		<module>J2EE/Spring/Spring3QuartzSchedulerOfMethodInvokingJobDetailFactoryBean</module>
+		<module>J2EE/Spring/SpringDTO</module>
+		<module>J2EE/Spring/SpringQualifier</module>
+		<module>DataFormat/ProtocolBuffers</module>
+		<module>J2EE/Spring/SpringComponentAutowired</module>
+		<module>BigData/Flume/FlumeCustomInterceptors</module>
+		<module>BigData/Spark/SparkWorldCount</module>
+		<module>BigData/Spark/SparkWorldCount2</module>
+		<module>BigData/Spark/SparkExample</module>
+		<module>BigData/Spark/SparkLoadSequenceFile</module>
+		<module>J2EE/JDBC/JDBC</module>
 	</modules>
 
     <properties>
