@@ -20,6 +20,5 @@ public class HibernateMain {
         session.beginTransaction();
         session.save(user);
         session.getTransaction().commit();
-
     }
 }
