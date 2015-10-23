@@ -23,7 +23,7 @@
         <property name="hbm2ddl.auto">create</property>
 
         <!--Names the annotted entity class-->
-        <mapping class="com.yizhao.dto.UserDetails"/>
+        <mapping class="main.java.com.yizhao.dto.UserDetails"/>
 
     </session-factory>
 </hibernate-configuration>
