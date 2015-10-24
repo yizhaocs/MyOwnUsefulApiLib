@@ -30,6 +30,7 @@ public class UserDetails {
     @Column(name = "ADDRESS")
     private String address;
 
+    @Lob // ask Hibernate api to no to restrict this object to 255 chars limit, so it can be a very long string with @Lob annotation .
     @Column(name = "DESCRIPTION")
     private String description;
 
