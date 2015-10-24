@@ -21,16 +21,16 @@ public class HibernateMain {
         user.setUserName("Yi Zhao");
 
         Address yizhaoAddress1 = new Address();
-        yizhaoAddress1.setCity("Milpitas-1");
+        yizhaoAddress1.setCity("First City");
         yizhaoAddress1.setPinCode("95035-1");
         yizhaoAddress1.setState("CA-1");
-        yizhaoAddress1.setStreet("245 WOODWARD DR-1");
+        yizhaoAddress1.setStreet("First Street");
 
         Address yizhaoAddress2 = new Address();
-        yizhaoAddress2.setCity("Milpitas-2");
+        yizhaoAddress2.setCity("Second City");
         yizhaoAddress2.setPinCode("95035-2");
         yizhaoAddress2.setState("CA-2");
-        yizhaoAddress2.setStreet("245 WOODWARD DR-2");
+        yizhaoAddress2.setStreet("Second Street");
 
         Address yizhaoHomeAddress = new Address();
         yizhaoHomeAddress.setCity("Milpitas");
