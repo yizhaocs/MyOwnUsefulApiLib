@@ -11,10 +11,10 @@ import java.util.Date;
  * Created by YZ on 10/23/15.
  */
 public class HibernateMain {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         UserDetails user = new UserDetails();
         user.setUserId(1);
-        user.setUserName("First Name");
+        user.setUserName("Yi Zhao");
         user.setAddress("245 WOODWARD DR");
         user.setJoinedDateTime(new Date());
         user.setJoinedDate(new Date());
@@ -27,5 +27,11 @@ public class HibernateMain {
         session.beginTransaction();
         session.save(user);
         session.getTransaction().commit();
+        session.close();
+
+        session = sessionFactory.openSession();
+        session.beginTransaction();
+        UserDetails user2 = (UserDetails) session.get(UserDetails.class, 1); // pass into (Object.class, primary key)
+        System.out.println("User Name retrieved is :" + user2.getUserName());
     }
 }
