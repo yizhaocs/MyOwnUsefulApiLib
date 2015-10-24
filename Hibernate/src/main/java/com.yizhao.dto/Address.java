@@ -6,7 +6,7 @@ import javax.persistence.Embeddable;
 /**
  * Created by YZ on 10/24/15.
  */
-@Embeddable
+@Embeddable // ask Hibernate api to set Address class to be Embeddable
 public class Address {
     @Column(name = "STREET")
     private String street;
