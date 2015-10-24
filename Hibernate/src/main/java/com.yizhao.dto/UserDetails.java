@@ -52,6 +52,9 @@ public class UserDetails {
 
     private Set<Address> listOfHomeAddresses = new HashSet<>();
 
+    @Embedded
+    private Address address;
+
     @Embedded // ask Hibernate api to Embed Address object into table
     @AttributeOverrides({ // ask Hibernate api to override the field names in Address object
             @AttributeOverride(name = "street", column = @Column(name = "HOME_STREET_NAME")),
@@ -90,6 +93,22 @@ public class UserDetails {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public Set<Address> getListOfHomeAddresses() {
+        return listOfHomeAddresses;
+    }
+
+    public void setListOfHomeAddresses(Set<Address> listOfHomeAddresses) {
+        this.listOfHomeAddresses = listOfHomeAddresses;
     }
 
     public Address getHomeAddress() {

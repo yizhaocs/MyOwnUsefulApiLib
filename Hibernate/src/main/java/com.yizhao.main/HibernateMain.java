@@ -19,6 +19,13 @@ public class HibernateMain {
         UserDetails user = new UserDetails();
         user.setUserId(1);
         user.setUserName("Yi Zhao");
+
+        Address yizhaoAddress = new Address();
+        yizhaoAddress.setCity("Milpitas");
+        yizhaoAddress.setPinCode("95035");
+        yizhaoAddress.setState("CA");
+        yizhaoAddress.setStreet("245 WOODWARD DR");
+
         Address yizhaoHomeAddress = new Address();
         yizhaoHomeAddress.setCity("Milpitas");
         yizhaoHomeAddress.setPinCode("95035");
@@ -31,6 +38,7 @@ public class HibernateMain {
         yizhaoOfficeAddress.setState("CA");
         yizhaoOfficeAddress.setStreet("245 WOODWARD DR");
 
+        user.setAddress(yizhaoAddress);
         user.setHomeAddress(yizhaoHomeAddress);
         user.setOfficeAddress(yizhaoOfficeAddress);
         user.setJoinedDateTime(new Date());
@@ -41,6 +49,13 @@ public class HibernateMain {
         UserDetails user2 = new UserDetails();
         user2.setUserId(2);
         user2.setUserName("Wang Wu");
+
+        Address wantwuAddress = new Address();
+        wantwuAddress.setCity("SAN FRAN");
+        wantwuAddress.setPinCode("95035");
+        wantwuAddress.setState("CA");
+        wantwuAddress.setStreet("777 PARK");
+
         Address wantwuHomeAddress = new Address();
         wantwuHomeAddress.setCity("SAN FRAN");
         wantwuHomeAddress.setPinCode("95035");
@@ -53,6 +68,7 @@ public class HibernateMain {
         wantwuOfficeAddress.setState("CA");
         wantwuOfficeAddress.setStreet("777 PARK");
 
+        user2.setAddress(wantwuAddress);
         user2.setHomeAddress(wantwuHomeAddress);
         user2.setOfficeAddress(wantwuOfficeAddress);
         user2.setJoinedDateTime(new Date());
