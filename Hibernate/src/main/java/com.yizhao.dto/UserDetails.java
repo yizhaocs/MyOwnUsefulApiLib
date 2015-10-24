@@ -16,8 +16,16 @@ public class UserDetails {
     @Column(name = "USER_NAME") // ask Hibernate api to set the field name as "USER_NAME" instead of "userName"
     private String userName;
 
+    @Column(name = "JOINED_DATE_TIME")
+    private Date joinedDateTime; // save both Data and time as "2015-10-23 20:51:23"
+
+    @Temporal(TemporalType.DATE) // ask Hibernate api to save Data only as "2015-10-23"
     @Column(name = "JOINED_DATE")
     private Date joinedDate;
+
+    @Temporal(TemporalType.TIME) // ask Hibernate api to save Time only as "20:51:23"
+    @Column(name = "JOINED_TIME")
+    private Date joinedTime;
 
     @Column(name = "ADDRESS")
     private String address;
@@ -61,12 +69,29 @@ public class UserDetails {
         this.description = description;
     }
 
+
+    public Date getJoinedDateTime() {
+        return joinedDateTime;
+    }
+
+    public void setJoinedDateTime(Date joinedDateTime) {
+        this.joinedDateTime = joinedDateTime;
+    }
+
     public Date getJoinedDate() {
         return joinedDate;
     }
 
     public void setJoinedDate(Date joinedDate) {
         this.joinedDate = joinedDate;
+    }
+
+    public Date getJoinedTime() {
+        return joinedTime;
+    }
+
+    public void setJoinedTime(Date joinedTime) {
+        this.joinedTime = joinedTime;
     }
 
     public String getTempField() {

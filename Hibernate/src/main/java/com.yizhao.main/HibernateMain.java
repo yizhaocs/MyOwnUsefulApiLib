@@ -16,7 +16,9 @@ public class HibernateMain {
         user.setUserId(1);
         user.setUserName("First Name");
         user.setAddress("245 WOODWARD DR");
+        user.setJoinedDateTime(new Date());
         user.setJoinedDate(new Date());
+        user.setJoinedTime(new Date());
         user.setDescription("Yi Zhao's home");
 
         /* Configure for the Hibernate */
