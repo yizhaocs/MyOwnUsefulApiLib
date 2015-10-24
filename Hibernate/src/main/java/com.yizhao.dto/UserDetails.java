@@ -10,6 +10,7 @@ import java.util.Date;
 @Table(name = "USER_DETAILS") // ask Hibernate api to create a database table name as "USER_DETAILS" instead of "UserDetails"
 public class UserDetails {
     @Id // ask Hibernate api to set this field as the primary key in the database table
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "USER_ID") // ask Hibernate api to set the field name as "USER_ID" instead of "userId"
     private int userId;
 
