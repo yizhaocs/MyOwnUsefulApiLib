@@ -22,6 +22,9 @@
         <!-- Drop and re-create the database schema on startup-->
         <property name="hbm2ddl.auto">create</property>
 
+        <!-- don't re-create the database schema -->
+        <!--<property name="hbm2ddl.auto">update</property>-->
+
         <!--Names the annotted entity class-->
         <mapping class="main.java.com.yizhao.dto.UserDetails"/>
 
