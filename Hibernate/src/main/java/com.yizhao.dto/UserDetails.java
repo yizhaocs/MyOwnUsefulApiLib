@@ -30,13 +30,18 @@ public class UserDetails {
 
     @Embedded // ask Hibernate api to Embed Address object into table
     @AttributeOverrides({
-            @AttributeOverride (name="street", column=@Column(name="HOME_STREET_NAME")),
-            @AttributeOverride (name="city", column=@Column(name="HOME_CITY_NAME")),
-            @AttributeOverride (name="state", column=@Column(name="HOME_STATE_NAME")),
-            @AttributeOverride (name="pinCode", column=@Column(name="HOME_PIN_CODE"))})
+    @AttributeOverride (name="street", column=@Column(name="HOME_STREET_NAME")),
+    @AttributeOverride (name="city", column=@Column(name="HOME_CITY_NAME")),
+    @AttributeOverride (name="state", column=@Column(name="HOME_STATE_NAME")),
+    @AttributeOverride (name="pinCode", column=@Column(name="HOME_PIN_CODE"))})
     private Address homeAddress;
 
     @Embedded // ask Hibernate api to Embed Address object into table
+    @AttributeOverrides({
+    @AttributeOverride (name="street", column=@Column(name="OFFICE_STREET_NAME")),
+    @AttributeOverride (name="city", column=@Column(name="OFFICE_CITY_NAME")),
+    @AttributeOverride (name="state", column=@Column(name="OFFICE_STATE_NAME")),
+    @AttributeOverride (name="pinCode", column=@Column(name="OFFICE_PIN_CODE"))})
     private Address officeAddress;
 
     @Lob // ask Hibernate api to no to restrict this object to 255 chars limit, so it can be a very long string with @Lob annotation .
