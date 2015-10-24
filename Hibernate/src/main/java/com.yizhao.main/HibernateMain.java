@@ -1,5 +1,6 @@
 package main.java.com.yizhao.main;
 
+import main.java.com.yizhao.dto.Address;
 import main.java.com.yizhao.dto.UserDetails;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -18,7 +19,12 @@ public class HibernateMain {
         UserDetails user = new UserDetails();
         user.setUserId(1);
         user.setUserName("Yi Zhao");
-        user.setAddress("245 WOODWARD DR");
+        Address yizhaoAddress = new Address();
+        yizhaoAddress.setCity("Milpitas");
+        yizhaoAddress.setPinCode("95035");
+        yizhaoAddress.setState("CA");
+        yizhaoAddress.setStreet("245 WOODWARD DR");
+        user.setAddress(yizhaoAddress);
         user.setJoinedDateTime(new Date());
         user.setJoinedDate(new Date());
         user.setJoinedTime(new Date());
@@ -27,7 +33,12 @@ public class HibernateMain {
         UserDetails user2 = new UserDetails();
         user2.setUserId(2);
         user2.setUserName("Wang Wu");
-        user2.setAddress("4335 NEWPORT");
+        Address wantwuAddress = new Address();
+        wantwuAddress.setCity("SAN FRAN");
+        wantwuAddress.setPinCode("95035");
+        wantwuAddress.setState("CA");
+        wantwuAddress.setStreet("777 PARK");
+        user2.setAddress(wantwuAddress);
         user2.setJoinedDateTime(new Date());
         user2.setJoinedDate(new Date());
         user2.setJoinedTime(new Date());

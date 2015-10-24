@@ -27,8 +27,9 @@ public class UserDetails {
     @Column(name = "JOINED_TIME")
     private Date joinedTime;
 
+    @Embedded // ask Hibernate api to Embed Address object into table
     @Column(name = "ADDRESS")
-    private String address;
+    private Address address;
 
     @Lob // ask Hibernate api to no to restrict this object to 255 chars limit, so it can be a very long string with @Lob annotation .
     @Column(name = "DESCRIPTION")
@@ -54,11 +55,11 @@ public class UserDetails {
         this.userName = userName;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
