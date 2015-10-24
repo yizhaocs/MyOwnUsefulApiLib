@@ -1,22 +1,19 @@
 package main.java.com.yizhao.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
  * Created by YZ on 10/23/15.
  */
 @Entity
-@Table(name = "USER_DETAILS") // create a database table name as "USER_DETAILS" instead of "UserDetails"
+@Table(name = "USER_DETAILS") // ask Hibernate api to create a database table name as "USER_DETAILS" instead of "UserDetails"
 public class UserDetails {
-    @Id // Id annotation is for the primary key only
-    @Column(name = "USER_ID") // set the field name as "USER_ID" instead of "userId"
+    @Id // ask Hibernate api to set this field as the primary key in the database table
+    @Column(name = "USER_ID") // ask Hibernate api to set the field name as "USER_ID" instead of "userId"
     private int userId;
 
-    @Column(name = "USER_NAME") // set the field name as "USER_NAME" instead of "userName"
+    @Column(name = "USER_NAME") // ask Hibernate api to set the field name as "USER_NAME" instead of "userName"
     private String userName;
 
     @Column(name = "JOINED_DATE")
@@ -27,6 +24,10 @@ public class UserDetails {
 
     @Column(name = "DESCRIPTION")
     private String description;
+
+    @Transient // ask Hibernate api to skip this field adding to the table
+    @Column(name = "TEMP_FIELD")
+    private String tempField;
 
     public int getUserId() {
         return userId;
@@ -66,5 +67,13 @@ public class UserDetails {
 
     public void setJoinedDate(Date joinedDate) {
         this.joinedDate = joinedDate;
+    }
+
+    public String getTempField() {
+        return tempField;
+    }
+
+    public void setTempField(String tempField) {
+        this.tempField = tempField;
     }
 }
