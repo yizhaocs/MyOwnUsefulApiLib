@@ -24,11 +24,21 @@ public class HibernateMain {
         user.setJoinedTime(new Date());
         user.setDescription("Yi Zhao's home");
 
+        UserDetails user2 = new UserDetails();
+        user2.setUserId(2);
+        user2.setUserName("Wang Wu");
+        user2.setAddress("4335 NEWPORT");
+        user2.setJoinedDateTime(new Date());
+        user2.setJoinedDate(new Date());
+        user2.setJoinedTime(new Date());
+        user2.setDescription("Wang Wu's home");
+
         /* Configure for the Hibernate */
         SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         session.save(user);
+        session.save(user2);
         session.getTransaction().commit();
         session.close();
 
@@ -38,7 +48,7 @@ public class HibernateMain {
         * */
         session = sessionFactory.openSession();
         session.beginTransaction();
-        UserDetails user2 = (UserDetails) session.get(UserDetails.class, 1); // pass into (Object.class, primary key)
-        System.out.println("User Name retrieved is :" + user2.getUserName());
+        UserDetails user3 = (UserDetails) session.get(UserDetails.class, 1); // pass into (Object.class, primary key)
+        System.out.println("User Name retrieved is :" + user3.getUserName());
     }
 }
