@@ -29,7 +29,7 @@ public class UserDetails {
     private Date joinedTime;
 
     @Embedded // ask Hibernate api to Embed Address object into table
-    @AttributeOverrides({
+    @AttributeOverrides({ // ask Hibernate api to override the field names in Address object
     @AttributeOverride (name="street", column=@Column(name="HOME_STREET_NAME")),
     @AttributeOverride (name="city", column=@Column(name="HOME_CITY_NAME")),
     @AttributeOverride (name="state", column=@Column(name="HOME_STATE_NAME")),
@@ -37,7 +37,7 @@ public class UserDetails {
     private Address homeAddress;
 
     @Embedded // ask Hibernate api to Embed Address object into table
-    @AttributeOverrides({
+    @AttributeOverrides({ // ask Hibernate api to override the field names in Address object
     @AttributeOverride (name="street", column=@Column(name="OFFICE_STREET_NAME")),
     @AttributeOverride (name="city", column=@Column(name="OFFICE_CITY_NAME")),
     @AttributeOverride (name="state", column=@Column(name="OFFICE_STATE_NAME")),
