@@ -19,12 +19,20 @@ public class HibernateMain {
         UserDetails user = new UserDetails();
         user.setUserId(1);
         user.setUserName("Yi Zhao");
-        Address yizhaoAddress = new Address();
-        yizhaoAddress.setCity("Milpitas");
-        yizhaoAddress.setPinCode("95035");
-        yizhaoAddress.setState("CA");
-        yizhaoAddress.setStreet("245 WOODWARD DR");
-        user.setAddress(yizhaoAddress);
+        Address yizhaoHomeAddress = new Address();
+        yizhaoHomeAddress.setCity("Milpitas");
+        yizhaoHomeAddress.setPinCode("95035");
+        yizhaoHomeAddress.setState("CA");
+        yizhaoHomeAddress.setStreet("245 WOODWARD DR");
+
+        Address yizhaoOfficeAddress = new Address();
+        yizhaoOfficeAddress.setCity("Milpitas");
+        yizhaoOfficeAddress.setPinCode("95035");
+        yizhaoOfficeAddress.setState("CA");
+        yizhaoOfficeAddress.setStreet("245 WOODWARD DR");
+
+        user.setHomeAddress(yizhaoHomeAddress);
+        user.setOfficeAddress(yizhaoOfficeAddress);
         user.setJoinedDateTime(new Date());
         user.setJoinedDate(new Date());
         user.setJoinedTime(new Date());
@@ -33,12 +41,20 @@ public class HibernateMain {
         UserDetails user2 = new UserDetails();
         user2.setUserId(2);
         user2.setUserName("Wang Wu");
-        Address wantwuAddress = new Address();
-        wantwuAddress.setCity("SAN FRAN");
-        wantwuAddress.setPinCode("95035");
-        wantwuAddress.setState("CA");
-        wantwuAddress.setStreet("777 PARK");
-        user2.setAddress(wantwuAddress);
+        Address wantwuHomeAddress = new Address();
+        wantwuHomeAddress.setCity("SAN FRAN");
+        wantwuHomeAddress.setPinCode("95035");
+        wantwuHomeAddress.setState("CA");
+        wantwuHomeAddress.setStreet("777 PARK");
+
+        Address wantwuOfficeAddress = new Address();
+        wantwuOfficeAddress.setCity("SAN FRAN");
+        wantwuOfficeAddress.setPinCode("95035");
+        wantwuOfficeAddress.setState("CA");
+        wantwuOfficeAddress.setStreet("777 PARK");
+
+        user2.setHomeAddress(wantwuHomeAddress);
+        user2.setOfficeAddress(wantwuOfficeAddress);
         user2.setJoinedDateTime(new Date());
         user2.setJoinedDate(new Date());
         user2.setJoinedTime(new Date());

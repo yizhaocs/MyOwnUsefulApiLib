@@ -29,8 +29,15 @@ public class UserDetails {
     private Date joinedTime;
 
     @Embedded // ask Hibernate api to Embed Address object into table
-    @Column(name = "ADDRESS")
-    private Address address;
+    @AttributeOverrides({
+            @AttributeOverride (name="street", column=@Column(name="HOME_STREET_NAME")),
+            @AttributeOverride (name="city", column=@Column(name="HOME_CITY_NAME")),
+            @AttributeOverride (name="state", column=@Column(name="HOME_STATE_NAME")),
+            @AttributeOverride (name="pinCode", column=@Column(name="HOME_PIN_CODE"))})
+    private Address homeAddress;
+
+    @Embedded // ask Hibernate api to Embed Address object into table
+    private Address officeAddress;
 
     @Lob // ask Hibernate api to no to restrict this object to 255 chars limit, so it can be a very long string with @Lob annotation .
     @Column(name = "DESCRIPTION")
@@ -56,12 +63,20 @@ public class UserDetails {
         this.userName = userName;
     }
 
-    public Address getAddress() {
-        return address;
+    public Address getHomeAddress() {
+        return homeAddress;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setHomeAddress(Address homeAddress) {
+        this.homeAddress = homeAddress;
+    }
+
+    public Address getOfficeAddress() {
+        return officeAddress;
+    }
+
+    public void setOfficeAddress(Address officeAddress) {
+        this.officeAddress = officeAddress;
     }
 
     public String getDescription() {

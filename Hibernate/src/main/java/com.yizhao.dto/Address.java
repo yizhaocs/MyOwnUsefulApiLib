@@ -8,11 +8,11 @@ import javax.persistence.Embeddable;
  */
 @Embeddable // ask Hibernate api to set Address class to be Embeddable
 public class Address {
-    @Column(name = "STREET")
+    @Column(name = "STREET_NAME")
     private String street;
-    @Column(name = "CITY")
+    @Column(name = "CITY_NAME")
     private String city;
-    @Column(name = "STATE")
+    @Column(name = "STATE_NAME")
     private String state;
     @Column(name = "PIN_CODE")
     private String pinCode;
