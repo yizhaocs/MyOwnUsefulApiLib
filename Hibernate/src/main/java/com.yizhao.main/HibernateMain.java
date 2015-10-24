@@ -11,8 +11,8 @@ import org.hibernate.classic.Session;
 public class HibernateMain {
     public static void main(String[] args){
         UserDetails user = new UserDetails();
-        user.setId(1);
-        user.setName("First Name");
+        user.setUserId(1);
+        user.setUserName("First Name");
 
         /* Configure for the Hibernate */
         SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();

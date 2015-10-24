@@ -1,33 +1,34 @@
 package main.java.com.yizhao.dto;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
  * Created by YZ on 10/23/15.
  */
-@Entity
+@Entity (name="USER_DETAILS") // create a database table name as "USER_DETAILS" instead of "UserDetails"
 public class UserDetails {
     @Id // Id annotation is for the primary key only
-    private int id;
-    private String name;
+    @Column(name="USER_ID") // set the field name as "USER_ID" instead of "userId"
+    private int userId;
 
-    public int getId() {
-        return id;
+    @Column(name="USER_NAME") // set the field name as "USER_NAME" instead of "userName"
+    private String userName;
+
+    public int getUserId() {
+        return userId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
-
-
-
 }
