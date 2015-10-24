@@ -50,6 +50,7 @@ public class UserDetails {
     @Column(name = "JOINED_TIME")
     private Date joinedTime;
 
+    @ElementCollection // ask Hibernate api to treat "listOfHomeAddresses" object as a collection
     private Set<Address> listOfHomeAddresses = new HashSet<>();
 
     @Embedded

@@ -20,11 +20,17 @@ public class HibernateMain {
         user.setUserId(1);
         user.setUserName("Yi Zhao");
 
-        Address yizhaoAddress = new Address();
-        yizhaoAddress.setCity("Milpitas");
-        yizhaoAddress.setPinCode("95035");
-        yizhaoAddress.setState("CA");
-        yizhaoAddress.setStreet("245 WOODWARD DR");
+        Address yizhaoAddress1 = new Address();
+        yizhaoAddress1.setCity("Milpitas-1");
+        yizhaoAddress1.setPinCode("95035-1");
+        yizhaoAddress1.setState("CA-1");
+        yizhaoAddress1.setStreet("245 WOODWARD DR-1");
+
+        Address yizhaoAddress2 = new Address();
+        yizhaoAddress2.setCity("Milpitas-2");
+        yizhaoAddress2.setPinCode("95035-2");
+        yizhaoAddress2.setState("CA-2");
+        yizhaoAddress2.setStreet("245 WOODWARD DR-2");
 
         Address yizhaoHomeAddress = new Address();
         yizhaoHomeAddress.setCity("Milpitas");
@@ -38,7 +44,10 @@ public class HibernateMain {
         yizhaoOfficeAddress.setState("CA");
         yizhaoOfficeAddress.setStreet("245 WOODWARD DR");
 
-        user.setAddress(yizhaoAddress);
+        user.getListOfHomeAddresses().add(yizhaoAddress1);
+        user.getListOfHomeAddresses().add(yizhaoAddress2);
+
+        user.setAddress(yizhaoAddress1);
         user.setHomeAddress(yizhaoHomeAddress);
         user.setOfficeAddress(yizhaoOfficeAddress);
         user.setJoinedDateTime(new Date());
