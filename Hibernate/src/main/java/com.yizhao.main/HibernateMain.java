@@ -12,6 +12,9 @@ import java.util.Date;
  */
 public class HibernateMain {
     public static void main(String[] args) {
+        /*
+        * store the user object
+        * */
         UserDetails user = new UserDetails();
         user.setUserId(1);
         user.setUserName("Yi Zhao");
@@ -29,6 +32,10 @@ public class HibernateMain {
         session.getTransaction().commit();
         session.close();
 
+
+        /*
+        * retrieve the user object
+        * */
         session = sessionFactory.openSession();
         session.beginTransaction();
         UserDetails user2 = (UserDetails) session.get(UserDetails.class, 1); // pass into (Object.class, primary key)
